@@ -24,7 +24,7 @@
             <form action="/select" name="selectEvent" method="post">
                 <p>イベントのタイトルを入力してください。<span class="attention">（必須）</span></p>
                 <!--{if $arrErr.eventTitle}--><span class="attention"><!--{$arrErr.eventTitle}--></span><!--{/if}-->
-                <input type="text" name="eventTitle" maxlength="50" value="<!--{$forms.eventTitle|default:''|escape}-->" placeholder="イベントタイトル" />
+                <input type="text" name="eventTitle" maxlength="50" value="<!--{$forms.eventTitle|default:''|escape}-->" placeholder="根本会" />
 
                 <p>メールアドレスを入力して下さい。<span class="attention">（必須）</span><br />
                 ※イベントの管理者として登録するものとなります。</p>
@@ -33,7 +33,7 @@
 
                 <p>イベントの日付を選択してください。<span class="attention">（必須）</span></p>
                 <!--{if $arrErr.eventDate}--><span class="attention"><!--{$arrErr.eventDate}--></span><!--{/if}-->
-                <input type="text" name="eventDate" id="datetimepicker" value="<!--{$forms.eventDate|default:''|escape}-->" placeholder="yyyy/mm/dd H:i" />
+                <input type="text" name="eventDate" id="datetimepicker" value="<!--{$forms.eventDate|default:''|escape}-->" placeholder="2015/12/18 19:30" />
 
                 <p></p>
                 <a href="/top"><button type="button" class="marT20 top">TOPへ</button></a>

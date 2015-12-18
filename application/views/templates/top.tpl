@@ -29,7 +29,7 @@
             <div id="container">
                 <p>選択してください。</p>
                 <a href="/select"><button class="marA10 register">新規登録</button></a>
-                <a href="/event"><button class="marA10 event">出欠の確認</button></a>
+                <a href="/events"><button class="marA10 event">出欠の確認</button></a>
             </div>
         <!--{include file='footer.tpl'}-->
     </body>

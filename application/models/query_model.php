@@ -47,23 +47,33 @@ class Query_model extends CI_Model {
      * レコード更新メソッド
      * @param　String $table テーブル情報
      * @param Array $params キー:登録値
+     * @param Array $condition キー：条件値
      * @return bool 登録成功・失敗
      */
-    public function update($table, $params = '', $condition = '') {
-        $ph = array();
+    public function update($table, $params = '', $conditions = '') {
+        $ph = [];
+        $ch = [];
 
         if ($params != '') {
-            foreach($params as $key => $val) {
-                $ph[] = sprintf('`%s`= ?', $key);
+            // パラメータ用プレースホルダ
+            foreach($params as $key1 => $val1) {
+                $ph[] = sprintf('`%s`= ?', $key1);
+            }
+            // where句用プレースホルダ
+            foreach($conditions as $key2 => $val2) {
+                $ch[] = sprintf('`%s`= ?', $key2);
             }
 
+
             // where句の指定をセット
-            if ($condition != '') {
-                $sql = sprintf('UPDATE %s SET %s WHERE %s', $table, implode(',', $ph), $condition);
+            if (count($ch) > 0) {
+                $sql = sprintf('UPDATE %s SET %s WHERE %s', $table, implode(',', $ph), implode(' AND ', $ch));
             } else {
                 $sql = sprintf('UPDATE %s SET %s', $table, implode(',', $ph));
             }
-            return $this->db->query($sql, array_values($params));
+            $mergeParam = array_merge($params, $conditions);
+
+            return $this->db->query($sql, array_values($mergeParam));
         }
 
         return true;

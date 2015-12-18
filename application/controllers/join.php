@@ -8,29 +8,16 @@ class Join extends My_Controller {
     }
 
     public function index() {
-        // 初期表示
-        $this->getEventInfo();
-        // 編集の場合は回答情報を取得
-        if ($_GET['a_id'] !== NULL || $_GET['a_id'] != '') $this->getAnswerInfo();
-    }
-
-    /**
-     * イベント情報の取得
-     * @param void
-     * @return void
-     */
-    private function getEventInfo() {
-        // モデルの読み込み
-        $this->load->model('join_model');
-
-        switch ($_SERVER['REQUEST_METHOD']) {
+         switch ($_SERVER['REQUEST_METHOD']) {
             case 'POST':
                 // 登録処理
-                $this->postSelect();
-                $eventId = $_POST['eId'];
+                $this->updateAnswer();
+
                 return TRUE;
 
             case 'GET':
+                // 編集の場合は回答情報を取得
+                if ($_GET['a_id'] !== NULL || $_GET['a_id'] != '') $this->getAnswerInfo();
                 $eventId = $_GET['e_id'];
                 break;
 
@@ -38,6 +25,20 @@ class Join extends My_Controller {
                 show_error('不正なアクセスです。');
                 break;
         }
+
+        // 回答情報取得
+        $this->getEventInfo($eventId);
+
+    }
+
+    /**
+     * イベント情報の取得
+     * @param void
+     * @return void
+     */
+    private function getEventInfo($eventId = '') {
+        // モデルの読み込み
+        $this->load->model('join_model');
 
         // イベントの取得
         list($events, $mess) = $this->join_model->getEvents($eventId);
@@ -61,8 +62,6 @@ class Join extends My_Controller {
     private function getAnswerInfo() {
         // モデルの読み込み
         $this->load->model('join_model');
-        // 回答IDを取得
-        $answerId = $_GET['a_id'];
         // 回答情報の取得
         list($answer, $mess) = $this->join_model->getAnswer($answerId);
 
@@ -77,11 +76,11 @@ class Join extends My_Controller {
     }
 
     /**
-     * 登録処理
+     * 更新処理
      * @param Array フォームの値
      * @return void
      */
-    private function postSelect() {
+    private function updateAnswer() {
         // モデルの読み込み
         $this->load->model('join_model');
         // バリデーションチェック
@@ -97,7 +96,7 @@ class Join extends My_Controller {
             if ($result === FALSE) {
                 show_error($mess . 'しました。もう一度お手続きください。');
             } else {
-                $this->_view("join_post.tpl");
+                $this->_view("join_complete.tpl");
                 return TRUE;
             }
         }

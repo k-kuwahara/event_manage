@@ -27,7 +27,7 @@
 
                 <p>参加者名を入力して下さい。<span class="attention"></span></p>
                 <!--{if $arrErr.joinName}--><span class="attention"><!--{$arrErr.joinName}--></span><!--{/if}-->
-                <input type="text" name="joinName" maxlength="50" value="<!--{$forms.joinName|default:''|escape}-->" placeholder="ユーザ名" />
+                <input type="text" name="joinName" maxlength="50" value="<!--{$forms.joinName|default:''|escape}-->" placeholder="桑原（ニックネーム可）" />
 
                 <p>メールアドレスを入力して下さい。<span class="attention">（必須）</span></p>
                 <!--{if $arrErr.joinEmail}--><span class="attention"><!--{$arrErr.joinEmail}--></span><!--{/if}-->

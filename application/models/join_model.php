@@ -53,6 +53,9 @@ class Join_model extends CI_Model {
                         'answer_name' => $params['joinName'],
                         'email'       => $params['joinEmail'],
                         'memo'        => $params['joinMemo'],
+                    ),
+                    array(
+                        'answer_id' => $params['aId'],
                     )
                 );
             } else {

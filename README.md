@@ -85,6 +85,15 @@ $ cd APP_ROOT
 $ php index.php migrate current
 ```
 
+## テストの実行
+`PHPUnit`をベースにユニットテストを行います。テスト作成には[`ci-phpunit-test`](https://github.com/kenjis/ci-phpunit-test)を利用させていただきました。
+以下のコマンドを実行してください。
+
+```bash
+$ cd applications/tests/
+$ ../../vendor/bin/phpunit	// --color=auto --testdox-textなどのオプションは適宜付与
+```
+
 ## ライセンス
 ライセンスは「[MIT License](https://github.com/k-kuwahara/event_manage/blob/master/LICENSE.md)」です。
 
