@@ -85,5 +85,8 @@ $ cd APP_ROOT
 $ php index.php migrate current
 ```
 
+## ライセンス
+ライセンスは「[MIT License](https://github.com/k-kuwahara/event_manage/blob/master/LICENSE.md)」です。
+
 ## その他
 コードレビューをいつでもお待ちしております！
