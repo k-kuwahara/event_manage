@@ -1,6 +1,5 @@
 ## サービスの概要
-これは「調整さん」を真似た__社内スケジュール管理ツール__です。  
-※主に飲み会の参加者を把握するためのものです。  
+これは「調整さん」を参考にした__イベント管理ツール__です。  
 
 __■機能仕様__
 
@@ -51,6 +50,39 @@ $ composer install
     RewriteCond %{REQUEST_URI} !\.(css|pdf|png|jpe?g|gif|js|swf|txt|ico|s?html?)$
     RewriteRule ^(.*)$ /index.php/$1 [L]
 </IfModule>
+```
+
+#### データベース接続設定
+`application/config/database.php`を編集してください。主に変更するのは以下の部分です。
+
+```php
+<?php
+'hostname' => 'localhost',
+'username' => 'hogeuser',
+'password' => 'hogepass',
+'database' => 'hogedb',
+'dbdriver' => 'mysql',
+```
+
+#### マイグレーションの設定
+`application/config/migration.php`ファイルより、マイグレーションの有効化・バージョンの設定を行ってください。
+
+```php
+<?php
+$config['migration_enabled'] = TRUE;
+$config['migration_version'] = 2;	// カスタマイズした際は適宜変更
+```
+
+#### マイグレーションの実行
+このアプリケーションでは、マイグレーションをコマンドラインから実行するため、先にデータベースを作成してください。
+作成後、以下のコマンドをコマンドラインから実行してください。
+
+```bash
+# ディレクトリ移動
+$ cd APP_ROOT
+
+# マイグレーションの実行
+$ php index.php migrate current
 ```
 
 ## その他
