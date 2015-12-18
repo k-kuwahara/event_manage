@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="CodeIgniter Application Test Suite" tests="3" assertions="3" failures="0" errors="0" time="0.729924">
+    <testsuite name="Dummy_test" file="/vagrant/schedule/application/tests/controllers/dummy_test.php" tests="1" assertions="1" failures="0" errors="0" time="0.136634">
+      <testcase name="test_index" class="Dummy_test" file="/vagrant/schedule/application/tests/controllers/dummy_test.php" line="12" assertions="1" time="0.136634">
+        <system-out>
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli_connect(): (HY000/1044): Access denied for user 'schedule'@'localhost' to database '1'
+Filename:    /vagrant/schedule/system/database/drivers/mysql/mysql_driver.php
+Line Number: 136
+
+Backtrace:
+	File: /vagrant/schedule/application/models/Query_model.php
+	Line: 22
+	Function: query
+
+	File: /vagrant/schedule/application/models/Event_model.php
+	Line: 21
+	Function: select
+
+	File: /vagrant/schedule/application/tests/controllers/dummy_test.php
+	Line: 13
+	Function: getEvents
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestCase.php
+	Line: 909
+	Function: invokeArgs
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestCase.php
+	Line: 768
+	Function: runTest
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestResult.php
+	Line: 612
+	Function: runBare
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestCase.php
+	Line: 724
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/TestRunner.php
+	Line: 440
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/Command.php
+	Line: 149
+	Function: doRun
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/Command.php
+	Line: 100
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/phpunit
+	Line: 47
+	Function: main
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysql_select_db() expects parameter 2 to be resource, boolean given
+Filename:    /vagrant/schedule/system/database/drivers/mysql/mysql_driver.php
+Line Number: 191
+
+Backtrace:
+	File: /vagrant/schedule/application/models/Query_model.php
+	Line: 22
+	Function: query
+
+	File: /vagrant/schedule/application/models/Event_model.php
+	Line: 21
+	Function: select
+
+	File: /vagrant/schedule/application/tests/controllers/dummy_test.php
+	Line: 13
+	Function: getEvents
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestCase.php
+	Line: 909
+	Function: invokeArgs
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestCase.php
+	Line: 768
+	Function: runTest
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestResult.php
+	Line: 612
+	Function: runBare
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestCase.php
+	Line: 724
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/TestRunner.php
+	Line: 440
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/Command.php
+	Line: 149
+	Function: doRun
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/Command.php
+	Line: 100
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/phpunit
+	Line: 47
+	Function: main
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysql_query() expects parameter 2 to be resource, boolean given
+Filename:    /vagrant/schedule/system/database/drivers/mysql/mysql_driver.php
+Line Number: 245
+
+Backtrace:
+	File: /vagrant/schedule/application/models/Query_model.php
+	Line: 22
+	Function: query
+
+	File: /vagrant/schedule/application/models/Event_model.php
+	Line: 21
+	Function: select
+
+	File: /vagrant/schedule/application/tests/controllers/dummy_test.php
+	Line: 13
+	Function: getEvents
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestCase.php
+	Line: 909
+	Function: invokeArgs
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestCase.php
+	Line: 768
+	Function: runTest
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestResult.php
+	Line: 612
+	Function: runBare
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestCase.php
+	Line: 724
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/TestRunner.php
+	Line: 440
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/Command.php
+	Line: 149
+	Function: doRun
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/Command.php
+	Line: 100
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/phpunit
+	Line: 47
+	Function: main
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysql_num_rows() expects parameter 1 to be resource, null given
+Filename:    /vagrant/schedule/system/database/drivers/mysql/mysql_result.php
+Line Number: 63
+
+Backtrace:
+	File: /vagrant/schedule/application/models/Query_model.php
+	Line: 22
+	Function: query
+
+	File: /vagrant/schedule/application/models/Event_model.php
+	Line: 21
+	Function: select
+
+	File: /vagrant/schedule/application/tests/controllers/dummy_test.php
+	Line: 13
+	Function: getEvents
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestCase.php
+	Line: 909
+	Function: invokeArgs
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestCase.php
+	Line: 768
+	Function: runTest
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestResult.php
+	Line: 612
+	Function: runBare
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestCase.php
+	Line: 724
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/TestRunner.php
+	Line: 440
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/Command.php
+	Line: 149
+	Function: doRun
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/Command.php
+	Line: 100
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/phpunit
+	Line: 47
+	Function: main
+
+
+</system-out>
+      </testcase>
+    </testsuite>
+    <testsuite name="Calculate_test" file="/vagrant/schedule/application/tests/models/calculate_test.php" tests="2" assertions="2" failures="0" errors="0" time="0.593290">
+      <testcase name="test_add" class="Calculate_test" file="/vagrant/schedule/application/tests/models/calculate_test.php" line="12" assertions="1" time="0.312301">
+        <system-out>
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli_connect(): (HY000/1044): Access denied for user 'schedule'@'localhost' to database '1'
+Filename:    /vagrant/schedule/system/database/drivers/mysql/mysql_driver.php
+Line Number: 136
+
+Backtrace:
+	File: /vagrant/schedule/application/tests/_ci_phpunit_test/replacing/core/Loader.php
+	Line: 365
+	Function: DB
+
+	File: /vagrant/schedule/application/tests/_ci_phpunit_test/replacing/core/Loader.php
+	Line: 1325
+	Function: database
+
+	File: /vagrant/schedule/application/tests/_ci_phpunit_test/replacing/core/Loader.php
+	Line: 157
+	Function: _ci_autoloader
+
+	File: /vagrant/schedule/application/tests/_ci_phpunit_test/CIPHPUnitTestCase.php
+	Line: 63
+	Function: __construct
+
+	File: /vagrant/schedule/application/tests/models/calculate_test.php
+	Line: 8
+	Function: resetInstance
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestCase.php
+	Line: 764
+	Function: setUp
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestResult.php
+	Line: 612
+	Function: runBare
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestCase.php
+	Line: 724
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/TestRunner.php
+	Line: 440
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/Command.php
+	Line: 149
+	Function: doRun
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/Command.php
+	Line: 100
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/phpunit
+	Line: 47
+	Function: main
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysql_select_db() expects parameter 2 to be resource, boolean given
+Filename:    /vagrant/schedule/system/database/drivers/mysql/mysql_driver.php
+Line Number: 191
+
+Backtrace:
+	File: /vagrant/schedule/application/tests/_ci_phpunit_test/replacing/core/Loader.php
+	Line: 365
+	Function: DB
+
+	File: /vagrant/schedule/application/tests/_ci_phpunit_test/replacing/core/Loader.php
+	Line: 1325
+	Function: database
+
+	File: /vagrant/schedule/application/tests/_ci_phpunit_test/replacing/core/Loader.php
+	Line: 157
+	Function: _ci_autoloader
+
+	File: /vagrant/schedule/application/tests/_ci_phpunit_test/CIPHPUnitTestCase.php
+	Line: 63
+	Function: __construct
+
+	File: /vagrant/schedule/application/tests/models/calculate_test.php
+	Line: 8
+	Function: resetInstance
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestCase.php
+	Line: 764
+	Function: setUp
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestResult.php
+	Line: 612
+	Function: runBare
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestCase.php
+	Line: 724
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/TestRunner.php
+	Line: 440
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/Command.php
+	Line: 149
+	Function: doRun
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/Command.php
+	Line: 100
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/phpunit
+	Line: 47
+	Function: main
+
+
+</system-out>
+      </testcase>
+      <testcase name="test_multi" class="Calculate_test" file="/vagrant/schedule/application/tests/models/calculate_test.php" line="19" assertions="1" time="0.280989">
+        <system-out>
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli_connect(): (HY000/1044): Access denied for user 'schedule'@'localhost' to database '1'
+Filename:    /vagrant/schedule/system/database/drivers/mysql/mysql_driver.php
+Line Number: 136
+
+Backtrace:
+	File: /vagrant/schedule/application/tests/_ci_phpunit_test/replacing/core/Loader.php
+	Line: 365
+	Function: DB
+
+	File: /vagrant/schedule/application/tests/_ci_phpunit_test/replacing/core/Loader.php
+	Line: 1325
+	Function: database
+
+	File: /vagrant/schedule/application/tests/_ci_phpunit_test/replacing/core/Loader.php
+	Line: 157
+	Function: _ci_autoloader
+
+	File: /vagrant/schedule/application/tests/_ci_phpunit_test/CIPHPUnitTestCase.php
+	Line: 63
+	Function: __construct
+
+	File: /vagrant/schedule/application/tests/models/calculate_test.php
+	Line: 8
+	Function: resetInstance
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestCase.php
+	Line: 764
+	Function: setUp
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestResult.php
+	Line: 612
+	Function: runBare
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestCase.php
+	Line: 724
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/TestRunner.php
+	Line: 440
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/Command.php
+	Line: 149
+	Function: doRun
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/Command.php
+	Line: 100
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/phpunit
+	Line: 47
+	Function: main
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysql_select_db() expects parameter 2 to be resource, boolean given
+Filename:    /vagrant/schedule/system/database/drivers/mysql/mysql_driver.php
+Line Number: 191
+
+Backtrace:
+	File: /vagrant/schedule/application/tests/_ci_phpunit_test/replacing/core/Loader.php
+	Line: 365
+	Function: DB
+
+	File: /vagrant/schedule/application/tests/_ci_phpunit_test/replacing/core/Loader.php
+	Line: 1325
+	Function: database
+
+	File: /vagrant/schedule/application/tests/_ci_phpunit_test/replacing/core/Loader.php
+	Line: 157
+	Function: _ci_autoloader
+
+	File: /vagrant/schedule/application/tests/_ci_phpunit_test/CIPHPUnitTestCase.php
+	Line: 63
+	Function: __construct
+
+	File: /vagrant/schedule/application/tests/models/calculate_test.php
+	Line: 8
+	Function: resetInstance
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestCase.php
+	Line: 764
+	Function: setUp
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestResult.php
+	Line: 612
+	Function: runBare
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestCase.php
+	Line: 724
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/TestRunner.php
+	Line: 440
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/Command.php
+	Line: 149
+	Function: doRun
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/src/TextUI/Command.php
+	Line: 100
+	Function: run
+
+	File: /vagrant/schedule/vendor/phpunit/phpunit/phpunit
+	Line: 47
+	Function: main
+
+
+</system-out>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testsuites>

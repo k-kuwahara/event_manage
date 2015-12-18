@@ -1,0 +1,2 @@
+# add Trailing Slashes
+RewriteRule ^(.+[^/])$ /$1/ [R=301,L]
