@@ -19,9 +19,10 @@ class Events_model extends CI_Model {
                     'del_flg' => 0,
                 )
             );
+
+            if ($ret === false) throw new Exception('データベース参照エラーが発生');
             $result = $ret->result_array();
 
-            if ($result === false) throw new Exception('データベース参照エラーが発生');
             return array($result, "");
 
         } catch (Exception $e) {

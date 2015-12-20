@@ -24,11 +24,12 @@ class Select_model extends CI_Model {
                     'del_flg'     => 0,
                 )
             );
+
+            if ($ret === false) throw new Exception('データベース参照エラーが発生');
             $check = $ret->result_array();
+
             if ($check[0]['cnt'] > 0) {
                 throw new Exception("登録済みのデータです。別のイベントを登録してください。");
-            } elseif (!$check) {
-                throw new Exception('データベース参照エラーが発生');
             }
 
             $result = $this->query_model->insert('dt_event', 
@@ -42,7 +43,7 @@ class Select_model extends CI_Model {
                 )
             );
 
-            if (!$result) throw new Exception('データベース登録エラーが発生');
+            if ($result === false) throw new Exception('データベース登録エラーが発生');
             return array(true, "");
 
         } catch (Exception $e) {
