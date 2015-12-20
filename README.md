@@ -83,6 +83,10 @@ $ cd APP_ROOT
 
 # マイグレーションの実行
 $ php index.php migrate current
+
+# 以下のコマンドでも実行できます
+# ※このコマンドではマイグレーションの設定は不要です
+$ php index.php migrate latest
 ```
 
 ## テストの実行
