@@ -53,7 +53,7 @@ $ composer install
 ```
 
 #### データベース接続設定
-`application/config/database.php`を編集してください。主に変更するのは以下の部分です。
+`application/config/***/database.php`を編集してください。※`development, testing, production`の三つとも編集する必要があります。主に変更するのは以下の部分です。
 
 ```php
 <?php
@@ -63,6 +63,8 @@ $ composer install
 'database' => 'hogedb',
 'dbdriver' => 'mysql',
 ```
+
+開発用(development)、テスト用(testing)、本番用(production)と分かれていますので、適宜`index.php`の`define('ENVIRONMENT', 'development');`の部分を変更してください。
 
 #### マイグレーションの設定
 `application/config/migration.php`ファイルより、マイグレーションの有効化・バージョンの設定を行ってください。
