@@ -45,7 +45,7 @@
                 <p>現在回答者はいません。</p>
             <!--{/if}-->
             <div class="btnWrap">
-                <a href="/event"><button type="button" class="marT20 marR20 top">一覧へ戻る</button></a>
+                <a href="/events"><button type="button" class="marT20 marR20 top">一覧へ戻る</button></a>
                 <a href="/top"><button class="marT20 top">TOPへ</button></a>
             </div>
         </div>
