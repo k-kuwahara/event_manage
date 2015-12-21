@@ -35,36 +35,36 @@ class Events_and_select_model_test extends TestCase {
             array(
                 'eventTitle' => 'テストイベントタイトル1',
                 'eventDate'  => '2015/12/22 19:00',
-                'adminEmail' => 'kuwahara@lepra.jp',
+                'adminEmail' => 'foo@gmail.com',
             ),
             array(
                 'eventTitle' => 'テストイベントタイトル2',
                 'eventDate'  => '2015/12/25 20:30',
-                'adminEmail' => 'dummy@test.jp',
+                'adminEmail' => 'bar@yahoo.co.jp',
             ),
             array(
                 'eventTitle' => 'テストイベントタイトル3',
                 'eventDate'  => '2016/01/04 09:30',
-                'adminEmail' => 'hogehoge@test.co.jp',
+                'adminEmail' => 'baz@hotmail.co.jp',
             )
         );
 
         foreach ($arrParams as $vals) {
             // 登録実行
-            list($result, $mess) = $this->selectObj->registerEvent($vals);
+            list($result, $retMess) = $this->selectObj->registerEvent($vals);
             // 正常終了確認
             $this->assertTrue($result);
-            $this->assertEquals($mess, "");
+            $this->assertEquals($retMess, "");
         }
 
         // 登録データ取得
-        list($eventResult, $mess) = $this->eventsObj->getEvents();
+        list($events, $retMess) = $this->eventsObj->getEvents();
         // 正常終了確認
-        $this->assertEquals(count($eventResult), 3);
-        $this->assertEquals($eventResult[0]['event_title'], 'テストイベントタイトル1');
-        $this->assertEquals($eventResult[1]['event_date'], '2015-12-25 20:30:00');
-        $this->assertEquals($eventResult[2]['email'], 'hogehoge@test.co.jp');
-        $this->assertEquals($mess, "");
+        $this->assertEquals(count($events), 3);
+        $this->assertEquals($events[0]['event_title'], 'テストイベントタイトル1');
+        $this->assertEquals($events[1]['event_date'], '2015-12-25 20:30:00');
+        $this->assertEquals($events[2]['email'], 'baz@hotmail.co.jp');
+        $this->assertEquals($retMess, "");
     }
 
     // データ更新テスト
