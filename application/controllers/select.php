@@ -34,9 +34,9 @@ class Select extends My_Controller {
 
             // 何かしらのエラー発生時
             if ($result === false) {
-                show_error($mess . 'しました。もう一度お手続きください。');
+                show_error($mess);
             } else {
-                $this->_view("select_post.tpl");
+                $this->_view("select_complete.tpl");
             }
         }
     }

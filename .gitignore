@@ -14,9 +14,9 @@ application/config/testing/database.php
 application/config/production/database.php
 application/config/migration.php
 
-!vendor/
-!composer*
-!application/tests/build/log/*
+vendor/
+composer*
+application/tests/build/log/*
 
 # IDE Files
 #-------------------------

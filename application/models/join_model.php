@@ -20,7 +20,7 @@ class Join_model extends CI_Model {
             $ret = $this->query_model->select('dt_event', 'event_id, event_title, event_date, email, del_flg',
                 array(
                     'event_id' => $eventId,
-                    'del_flg'     => 0,
+                    'del_flg'  => 0,
                 )
             );
 
@@ -62,7 +62,6 @@ class Join_model extends CI_Model {
             } else {
                 $result = $this->query_model->insert('dt_answer', 
                     array(
-                        'event_id'    => $params['eId'],
                         'answer_date' => date('Y-m-d H:i:s'),
                         'answer'      => $params['joinResult'],
                         'answer_name' => $params['joinName'],
@@ -72,7 +71,7 @@ class Join_model extends CI_Model {
                 );
             }
 
-            if (!$result) throw new Exception('データベース登録エラーが発生');
+            if ($result === false) throw new Exception('データベース登録エラーが発生');
             return array(true, "");
 
         } catch (Exception $e) {

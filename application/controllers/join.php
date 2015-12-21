@@ -17,7 +17,7 @@ class Join extends My_Controller {
 
             case 'GET':
                 // 編集の場合は回答情報を取得
-                if ($_GET['a_id'] !== NULL || $_GET['a_id'] != '') $this->getAnswerInfo();
+                if ($_GET['a_id'] !== NULL || $_GET['a_id'] != '') $this->getAnswerInfo($_GET['a_id']);
                 $eventId = $_GET['e_id'];
                 break;
 
@@ -59,7 +59,7 @@ class Join extends My_Controller {
      * @param void
      * @return void
      */
-    private function getAnswerInfo() {
+    private function getAnswerInfo($answerId = '') {
         // モデルの読み込み
         $this->load->model('join_model');
         // 回答情報の取得
