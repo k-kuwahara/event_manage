@@ -30,6 +30,8 @@ class Select_model extends CI_Model {
 
             if ($check[0]['cnt'] > 0) {
                 throw new Exception("登録済みのデータです。別のイベントを登録してください。");
+            } elseif (!$check) {
+                throw new Exception('データベース参照エラーが発生');
             }
 
             $result = $this->query_model->insert('dt_event', 

@@ -82,7 +82,7 @@ class Query_model extends CI_Model {
     /**
      * レコード論理削除メソッド
      * @param　String $table テーブル情報
-     * @param Array $params キー:条件値
+     * @param Array $params WHERE句パラメータ キー:条件値
      * @return bool 登録成功・失敗
      */
     public function logicalDelete($table, $params = '') {
@@ -96,7 +96,7 @@ class Query_model extends CI_Model {
             return $this->db->query($sql, array_values($params));
 
         } else {
-            $sql = sprintf('UPDATE %s del_flg = 1', $table);
+            $sql = sprintf('UPDATE %s SET del_flg = 1', $table);
             return $this->db->query($sql, array());
         }
     }
@@ -104,7 +104,7 @@ class Query_model extends CI_Model {
     /**
      * レコード物理削除メソッド
      * @param　String $table テーブル情報
-     * @param Array $params キー:条件値
+     * @param Array $params WHERE句パラメータ キー:条件値
      * @return bool 登録成功・失敗
      */
     public function physicalDelete($table, $params = '') {
