@@ -9,6 +9,9 @@ application/logs/*
 !application/logs/.htaccess
 
 application/config/config.php
+application/config/development/database.php
+application/config/testing/database.php
+application/config/production/database.php
 application/config/migration.php
 
 !vendor/
