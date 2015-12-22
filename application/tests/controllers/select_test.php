@@ -2,13 +2,13 @@
 class select_test extends TestCase {
 
    public function test_index() {
-     $output = $this->request('GET', ['select', 'index']);
+     $output = $this->request('GET', array('select', 'index'));
      $this->assertNull($output);
    }
 
    // 存在しないメソッドテスト
    public function test_nonMethod() {
-     $this->request('GET', ['select', 'hoge']);
+     $this->request('GET', array('select', 'hoge'));
      $this->assertResponseCode(404);
    }
 
@@ -17,10 +17,10 @@ class select_test extends TestCase {
      // 正常系
      $arrPostOk = [
        'eventTitle' => 'テストイベントタイトル1',
-       'adminEmail' => 'foo@gmail.com',
-       'eventDate'  => '2015/12/22 19:00',
+       'adminEmail' => 'piyo@gmail.com',
+       'eventDate'  => '2016/01/04 09:30',
      ];
-     $result = $this->request('POST', ['select', 'index'], $arrPostOk);
+     $result = $this->request('POST', array('select', 'index'), $arrPostOk);
      // 正常終了テスト
      $this->assertNull($result);
 
@@ -30,7 +30,7 @@ class select_test extends TestCase {
        'adminEmail' => 'ダミー',
        'eventDate'  => '2015/11/31 99:00',
      ];
-     $result = $this->request('POST', ['select', 'index'], $arrPostNg);
+     $result = $this->request('POST', array('select', 'index'), $arrPostNg);
      // 正常終了テスト
      $this->assertNull($result);
    }
