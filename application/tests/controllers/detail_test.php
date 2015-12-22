@@ -6,13 +6,13 @@ class detail_test extends TestCase {
    }
 
    // 存在しないメソッドテスト
-   public function test_nonmethod() {
+   public function test_nonMethod() {
       $this->request('GET', ['detail', 'hoge']);
       $this->assertResponseCode(404);
    }
 
    // クエリなしテスト
-   public function test_noquery() {
+   public function test_noQuery() {
       $output = $this->request('GET', 'detail');
       $this->assertContains('不正なアクセスです。', $output);
    }

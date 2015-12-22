@@ -12,7 +12,7 @@ class Select extends My_Controller {
 
         // 登録処理
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $this->postSelect();
+            $this->postSelect($_POST);
         }
     }
 
@@ -21,13 +21,14 @@ class Select extends My_Controller {
      * @param Array フォームの値
      * @return void
      */
-    private function postSelect() {
+    private function postSelect($arrPost = '') {
         // モデルの読み込み
         $this->load->model('select_model');
         // バリデーションチェック
-        $check = $this->checkValidate($_POST);
+        $check = $this->checkValidate($arrPost);
 
         if ($check === FALSE) {
+            log_message('debug', 'Validation error');
             $this->_view("select.tpl");
         } else {
             list($result, $mess) = $this->select_model->registerEvent($_POST);
