@@ -65,24 +65,24 @@ class join_model_test extends TestCase {
       // 登録実行
       list($result, $retMess) = $this->joinObj->registerMember($params);
       // 正常終了確認
-      $this->assertEquals($result, TRUE);
+      $this->assertTrue($result);
       $this->assertEquals($retMess, "");
 
       // 異常系
       // 登録実行（空文字列）
       list($result, $retMess) = $this->joinObj->registerMember('');
       // 正常終了確認
-      $this->assertEquals($result, FALSE);
+      $this->assertFalse($result);
       $this->assertEquals($retMess, "データベース登録エラーが発生");
       // 登録実行（空配列）
       list($result, $retMess) = $this->joinObj->registerMember(array());
       // 正常終了確認
-      $this->assertEquals($result, FALSE);
+      $this->assertFalse($result);
       $this->assertEquals($retMess, "データベース登録エラーが発生");
       // 登録実行（空配列）
       list($result, $retMess) = $this->joinObj->registerMember(NULL);
       // 正常終了確認
-      $this->assertEquals($result, FALSE);
+      $this->assertFalse($result);
       $this->assertEquals($retMess, "データベース登録エラーが発生");
    }
 
@@ -90,8 +90,15 @@ class join_model_test extends TestCase {
    // 回答データ取得
    public function test_getAnswer() {
       // 正常系
+      // 登録回答データ全件取得
+      $answerGet = $this->queryObj->select(
+         'dt_answer',
+         'answer_id',
+         ''
+      );
+      $answerGetResult = $answerGet->result_array();
       // イベントデータ取得
-      list($answerResult, $retMess) = $this->joinObj->getAnswer(0);
+      list($answerResult, $retMess) = $this->joinObj->getAnswer($answerGetResult[0]['answer_id']);
       // 正常終了確認
       $this->assertEquals(count($answerResult), 1);
       $this->assertEquals($retMess, "");

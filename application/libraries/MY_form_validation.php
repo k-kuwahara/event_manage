@@ -2,11 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class MY_Form_validation extends CI_Form_validation {
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
     }
-   // --------------------------------------------------------------------
 
    /**
     * Valid DateTime
@@ -14,8 +12,7 @@ class MY_Form_validation extends CI_Form_validation {
     * @param   string
     * @return  bool
     */
-   public function valid_datetime($str)
-   {
+   public function valid_datetime($str) {
       // 日付と時間を分離
       $datetimes = explode(' ', trim($str));
       $dateData = $datetimes[0];
