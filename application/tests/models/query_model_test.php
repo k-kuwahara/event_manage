@@ -296,7 +296,7 @@ class Query_model_test extends TestCase {
 // テストデータを全件削除したい方は以下のコメントアウトを外してください。
 /*
     // 全データの物理削除テスト
-    public function test_index() {
+    public function test_alldelete() {
         // 全イベントを削除
         $eventDeleteResult = $this->queryObj->physicalDelete('dt_event');
         // 全回答を削除
