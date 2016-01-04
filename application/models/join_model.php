@@ -42,10 +42,10 @@ class Join_model extends CI_Model {
    public function registerMember($params) {
       // モデルの読み込み
       $this->load->model('query_model');
-      $result = array();
+      $result = FALSE;
 
       try {
-         if ($params == '' || is_null($params)) throw new Exception('データベース登録エラーが発生');
+         if ($params == '' || empty($params)) throw new Exception('データベース登録エラーが発生');
 
          if ($params['aId'] !== NULL) {
             $result = $this->query_model->update('dt_answer', 
@@ -64,6 +64,7 @@ class Join_model extends CI_Model {
          } else {
             $result = $this->query_model->insert('dt_answer', 
                array(
+                  'event_id'    => $params['eId'],
                   'answer_date' => date('Y-m-d H:i:s'),
                   'answer'      => $params['joinResult'],
                   'answer_name' => $params['joinName'],

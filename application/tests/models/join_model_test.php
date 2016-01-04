@@ -55,11 +55,20 @@ class join_model_test extends TestCase {
    // 回答登録テスト
    public function test_registerMember() {
       // 正常系
+      // イベントデータ取得
+      $eventGet = $this->queryObj->select(
+         'dt_event',
+         '*',
+         ''
+      );
+      $eventGetResult = $eventGet->result_array();
+
       $params = array(
-          'aId'       => NULL,
-          'joinResult'  => 1,
+          'aId'        => NULL,
+          'eId'        => $eventGetResult[0]['event_id'],
+          'joinResult' => 1,
           'joinName'   => 'フーテスト',
-          'joinEmail'   => 'foo@hotmail.co.jp',
+          'joinEmail'  => 'foo@hotmail.co.jp',
           'joinMemo'   => 'テストメモ4'
       );
       // 登録実行
