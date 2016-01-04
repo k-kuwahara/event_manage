@@ -107,6 +107,8 @@ $ cd applications/tests/
 $ ../../vendor/bin/phpunit	// --color=auto --testdox-textなどのオプションは適宜付与
 ```
 
+※もしテスト実行速度が遅いと感じる場合は、`phpunit`のバージョンを`4.6.3`に変更してください。
+
 ## ライセンス
 ライセンスは「[MIT License](https://github.com/k-kuwahara/event_manage/blob/master/LICENSE.md)」です。
 
