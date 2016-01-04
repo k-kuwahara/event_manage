@@ -9,12 +9,15 @@ class Detail_model extends CI_Model {
      * @param Int エベントID
      * @param Array 出欠情報
      */
-    public function getEventInfo($eventId) {
+    public function getAnswer($eventId = '') {
         // モデルの読み込み
         $this->load->model('query_model');
         $result = array();
 
         try {
+            // イベントIDが空の場合はエラー
+            if ($eventId == '') throw new Exception('不正なアクセスです。');
+
             $ret = $this->query_model->select('dt_answer', 
                 "answer_id, 
                 event_id, 

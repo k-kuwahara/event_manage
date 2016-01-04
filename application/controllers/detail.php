@@ -14,7 +14,7 @@ class Detail extends My_Controller {
       $eventId = $_GET['id'];
       if (is_null($eventId)) show_error('不正なアクセスです。');
 
-      list($members, $mess) = $this->detail_model->getEventInfo($eventId);
+      list($members, $mess) = $this->detail_model->getAnswer($eventId);
 
       // 何かしらのエラー発生時
       if ($members === false) {
