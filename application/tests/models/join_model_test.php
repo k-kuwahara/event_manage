@@ -15,14 +15,14 @@ class join_model_test extends TestCase {
 
    public function test_index() {
       // 初期データ投入
-      $arrParam = array(
+      $arrParam = [
          'event_title' => 'テストイベントタイトル4',
          'create_date' => date('Y-m-d H:i:s'),
          'update_date' => date('Y-m-d H:i:s'),
          'event_date'  => '2015/12/23 10:30',
          'email'       => 'bar@gmail.com',
          'del_flg'     => 0,
-      );
+      ];
 
       // 登録実行
       $result = $this->queryObj->insert('dt_event', $arrParam);
@@ -63,14 +63,14 @@ class join_model_test extends TestCase {
       );
       $eventGetResult = $eventGet->result_array();
 
-      $params = array(
+      $params = [
           'aId'        => NULL,
           'eId'        => $eventGetResult[0]['event_id'],
           'joinResult' => 1,
           'joinName'   => 'フーテスト',
           'joinEmail'  => 'foo@hotmail.co.jp',
           'joinMemo'   => 'テストメモ4'
-      );
+      ];
       // 登録実行
       list($result, $retMess) = $this->joinObj->registerMember($params);
       // 正常終了確認
@@ -84,7 +84,7 @@ class join_model_test extends TestCase {
       $this->assertFalse($result);
       $this->assertEquals($retMess, "データベース登録エラーが発生");
       // 登録実行（空配列）
-      list($result, $retMess) = $this->joinObj->registerMember(array());
+      list($result, $retMess) = $this->joinObj->registerMember([]);
       // 正常終了確認
       $this->assertFalse($result);
       $this->assertEquals($retMess, "データベース登録エラーが発生");

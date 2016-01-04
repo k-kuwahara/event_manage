@@ -1,9 +1,9 @@
 <?php
 class detail_test extends TestCase {
    public function test_index() {
-      $arrGet = array(
+      $arrGet = [
          'id' => '1'
-      );
+      ];
       $output = $this->request('GET', 'detail', $arrGet);
       $this->assertNull($output);
    }

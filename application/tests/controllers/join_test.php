@@ -2,17 +2,17 @@
 class join_test extends TestCase {
    public function test_index() {
       // 存在しないイベントID
-      $arrGetNg = array(
+      $arrGetNg = [
          'a_id' => NULL,
          'e_id' => '999'
-      );
-      $output = $this->request('GET', array('join', 'index'), $arrGetNg);
+      ];
+      $output = $this->request('GET', ['join', 'index'], $arrGetNg);
       $this->assertNull($output);
    }
 
    // 存在しないメソッドテスト
    public function test_nonMethod() {
-      $this->request('GET', array('join', 'hoge'));
+      $this->request('GET', ['join', 'hoge']);
       $this->assertResponseCode(404);
    }
 
@@ -21,7 +21,7 @@ class join_test extends TestCase {
       $arrGet = array(
          'a_id' => NULL,
       );
-      $output = $this->request('GET', array('join', 'index'), $arrGet);
+      $output = $this->request('GET', ['join', 'index'], $arrGet);
       $this->assertContains('不正なアクセスです。', $output);
    }
 }
