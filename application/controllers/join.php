@@ -17,7 +17,7 @@ class Join extends My_Controller {
 
             case 'GET':
                 // 編集の場合は回答情報を取得
-                if ($_GET['a_id'] !== NULL || $_GET['a_id'] != '') $this->getAnswerInfo($_GET['a_id']);
+                if ($_GET['a_id'] !== NULL && $_GET['a_id'] != '') $this->getAnswerInfo($_GET['a_id']);
                 $eventId = $_GET['e_id'];
                 break;
 
@@ -26,7 +26,7 @@ class Join extends My_Controller {
                 break;
         }
 
-        // 回答情報取得
+        // イベント情報取得
         $this->getEventInfo($eventId);
 
     }
@@ -48,8 +48,10 @@ class Join extends My_Controller {
             show_error($mess);
 
         } else {
+            // イベント件数によりアサインを変更
+            count($events) == 0 ? $this->_assign('eventInfo', '') : $this->_assign('eventInfo', $events[0]);
+
             $this->_assign('eId', $eventId);
-            $this->_assign('eventInfo', $events[0]);
             $this->_view("join.tpl");
         }
     }
