@@ -61,10 +61,17 @@ $ composer install
 'username' => 'hogeuser',
 'password' => 'hogepass',
 'database' => 'hogedb',
-'dbdriver' => 'mysql',
+'dbdriver' => 'mysqli',	// 環境毎に変更してください。
 ```
 
-開発用(development)、テスト用(testing)、本番用(production)と分かれていますので、適宜`index.php`の`define('ENVIRONMENT', 'development');`の部分を変更してください。
+開発用(development)、テスト用(testing)、本番用(production)と分かれていますので、適宜`index.php`の
+
+```php
+<?php
+define('ENVIRONMENT', 'development');
+```
+
+の部分を変更してください。
 
 #### マイグレーションの設定
 `application/config/migration.php`ファイルより、マイグレーションの有効化・バージョンの設定を行ってください。
