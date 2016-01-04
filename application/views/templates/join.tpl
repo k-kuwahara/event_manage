@@ -57,7 +57,7 @@
 
 
                 <div class="btnSubmit">
-                    <a href="/event"><button type="button" class="marT20 top">一覧へ戻る</button></a>
+                    <a href="/events"><button type="button" class="marT20 top">一覧へ戻る</button></a>
                     <input type="submit" id="eventSubmit" class="marT20" value="登録する！">
                 </div>
             </form>
