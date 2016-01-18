@@ -23,18 +23,28 @@
     </head>
     <body>
         <header>
-            <nav class="navbar navbar-default">
+            <nav class="navbar navbar-default navbar-fixed-top">
                 <div class="container">
-                    <a class="navbar-brand" href="#">Brand</a>
-                    <ul class="nav navbar-nav">
-                        <li><a href="/top">TOP</a></li>
-                        <li class="active"><a href="/select">新規登録</a></li>
-                        <li><a href="/events">出欠の確認</a></li>
-                    </ul>
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Brand</a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/top">TOP</a></li>
+                            <li class="active"><a href="/select">新規登録</a></li>
+                            <li><a href="/events">出欠の確認</a></li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </header>
-        <div id="containerId">
+        <div class="container">
             <form action="/select" name="selectEvent" method="post">
                 <div class="form-group">
                     <label for="eventTitle">イベントのタイトルを入力してください。</label><span class="attention">（必須）</span>
@@ -56,9 +66,10 @@
                 </div>
 
                 <p></p>
-                <a href="/top"><button type="button" class="marT20 top">TOPへ</button></a>
-                <input type="submit" id="eventSubmit" class="marT20" value="登録する！">
+                <a href="/top"><button type="button" class="marR20 top">TOPへ</button></a>
+                <input type="submit" id="eventSubmit" class="marT20 marB30" value="登録する！">
             </form>
         </div>
+        <!--{include file="./footer.tpl"}-->
     </body>
 </html>

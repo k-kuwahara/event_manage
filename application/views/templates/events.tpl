@@ -20,58 +20,67 @@
     </head>
     <body>
         <header>
-            <nav class="navbar navbar-default">
+            <nav class="navbar navbar-default navbar-fixed-top">
                 <div class="container">
-                    <a class="navbar-brand" href="#">Brand</a>
-                    <ul class="nav navbar-nav">
-                        <li><a href="/top">TOP</a></li>
-                        <li><a href="/select">新規登録</a></li>
-                        <li class="active"><a href="/events">出欠の確認</a></li>
-                    </ul>
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Brand</a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/top">TOP</a></li>
+                            <li><a href="/select">新規登録</a></li>
+                            <li class="active"><a href="/events">出欠の確認</a></li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </header>
-        <div id="containerId">
-            <!--{if $arrEvent|@count > 0}-->
-                <p>確認するイベントを選択してください。</p>
-                <div class="container">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" summary="登録イベント">
-                            <thead>
-                                <tr>
-                                    <th class="alignC">イベント日時</th>
-                                    <th class="alignC">イベント名</th>
-                                    <th class="alignC">管理者メールアドレス</th>
-                                    <th class="alignC">出欠</th>
-                                    <th class="alignC">メンバー確認</th>
-                                    <th class="alignC">削除</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <form action="/event" name="deleteEvent" method="post">
-                                    <input type="hidden" name="mode" value="delete">
-                                    <input type="hidden" name="eventId" value="">
+        <!--{if $arrEvent|@count > 0}-->
+            <p>確認するイベントを選択してください。</p>
+            <div class="container">
+                <div class="table-responsive">
+                    <table class="table table-bordered" summary="登録イベント">
+                        <thead>
+                            <tr>
+                                <th class="alignC">イベント日時</th>
+                                <th class="alignC">イベント名</th>
+                                <th class="alignC">管理者メールアドレス</th>
+                                <th class="alignC">出欠</th>
+                                <th class="alignC">メンバー確認</th>
+                                <th class="alignC">削除</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <form action="/event" name="deleteEvent" method="post">
+                                <input type="hidden" name="mode" value="delete">
+                                <input type="hidden" name="eventId" value="">
 
-                                    <!--{foreach from=$arrEvent item="event" key="key"}-->
-                                        <tr>
-                                            <td class="alignC"><!--{$event.event_date|escape}--></td>
-                                            <td class="alignC"><!--{$event.event_title|escape}--></td>
-                                            <td class="alignC"><a href="mailto:<!--{$event.email|escape}-->"><!--{$event.email|escape}--></a></td>
-                                            <td class="alignC"><a href="/join?e_id=<!--{$event.event_id}-->"><button type="button" class="detail">出欠</button></a></td
-                                            >
-                                            <td class="alignC"><a href="/detail?id=<!--{$event.event_id}-->"><button type="button" class="detail">確認</button></a></td>
-                                                <td class="alignC"><button type="button" class="detail" onclick="lfDeleteEvent(<!--{$event.event_id|escape}-->);">削除</button></td>
-                                        </tr>
-                                    <!--{/foreach}-->
-                                </form>
-                            </tbody>
-                        </table>
-                    </div>
+                                <!--{foreach from=$arrEvent item="event" key="key"}-->
+                                    <tr>
+                                        <td class="alignC"><!--{$event.event_date|escape}--></td>
+                                        <td class="alignC"><!--{$event.event_title|escape}--></td>
+                                        <td class="alignC"><a href="mailto:<!--{$event.email|escape}-->"><!--{$event.email|escape}--></a></td>
+                                        <td class="alignC"><a href="/join?e_id=<!--{$event.event_id}-->"><button type="button" class="detail">出欠</button></a></td
+                                        >
+                                        <td class="alignC"><a href="/detail?id=<!--{$event.event_id}-->"><button type="button" class="detail">確認</button></a></td>
+                                            <td class="alignC"><button type="button" class="detail" onclick="lfDeleteEvent(<!--{$event.event_id|escape}-->);">削除</button></td>
+                                    </tr>
+                                <!--{/foreach}-->
+                            </form>
+                        </tbody>
+                    </table>
                 </div>
             <!--{else}-->
                 <p>現在登録されているイベントはありません。</p>
             <!--{/if}-->
-            <a href="/top"><button class="marT20 top">TOPへ</button></a>
+            <a href="/top"><button class="marT20 marB30 top">TOPへ</button></a>
         </div>
+        <!--{include file="./footer.tpl"}-->
     </body>
 </html>

@@ -23,26 +23,36 @@
     </head>
     <body>
         <header>
-            <nav class="navbar navbar-default">
+            <nav class="navbar navbar-default navbar-fixed-top">
                 <div class="container">
-                    <a class="navbar-brand" href="#">Brand</a>
-                    <ul class="nav navbar-nav">
-                        <li><a href="/top">TOP</a></li>
-                        <li><a href="/select">新規登録</a></li>
-                        <li><a href="/events">出欠の確認</a></li>
-                    </ul>
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Brand</a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/top">TOP</a></li>
+                            <li><a href="/select">新規登録</a></li>
+                            <li><a href="/events">出欠の確認</a></li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </header>
-        <div id="containerId">
+        <div class="container">
              <form action="/join" name="updateJoin" method="post">
                 <input type="hidden" name="aId" value="<!--{$aId}-->">
                 <input type="hidden" name="eId" value="<!--{$eId}-->">
 
-                <p>イベント名：　<!--{$eventInfo.event_title|escape}--></p>
+                <p class="lead">イベント名：　<!--{$eventInfo.event_title|escape}--></p>
                 <div class="form-group">
 
-                    <label for="joinName">参加者名を入力して下さい。</label><span class="attention">必須</span>
+                    <label for="joinName">参加者名を入力して下さい。</label><span class="attention">（必須）</span>
                     <!--{if $arrErr.joinName}--><span class="attention"><!--{$arrErr.joinName}--></span><!--{/if}-->
                     <input type="text" name="joinName" maxlength="50" class="form-control" id="joinName" value="<!--{$forms.joinName|default:''|escape}-->" placeholder="桑原（ニックネーム可）" />
                 </div>
@@ -80,11 +90,12 @@
                 </div>
 
                     <div class="btnSubmit">
-                        <a href="/events"><button type="button" class="marT20 top">一覧へ戻る</button></a>
-                        <input type="submit" id="eventSubmit" class="marT20" value="登録する！">
+                        <a href="/events"><button type="button" class="marR20 top">一覧へ戻る</button></a>
+                        <input type="submit" id="eventSubmit" class="marT20 marB30" value="登録する！">
                     </div>
                 </div>
             </form>
         </div>
+        <!--{include file="./footer.tpl"}-->
     </body>
 </html>
