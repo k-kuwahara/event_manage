@@ -19,7 +19,18 @@
         </script>
     </head>
     <body>
-        <!--{include file="./header.tpl" }-->
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <a class="navbar-brand" href="#">Brand</a>
+                    <ul class="nav navbar-nav">
+                        <li><a href="/top">TOP</a></li>
+                        <li><a href="/select">新規登録</a></li>
+                        <li class="active"><a href="/events">出欠の確認</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
         <div id="containerId">
             <!--{if $arrEvent|@count > 0}-->
                 <p>確認するイベントを選択してください。</p>

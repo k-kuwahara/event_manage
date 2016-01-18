@@ -22,6 +22,18 @@
         </script>
     </head>
     <body>
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <a class="navbar-brand" href="#">Brand</a>
+                    <ul class="nav navbar-nav">
+                        <li><a href="/top">TOP</a></li>
+                        <li><a href="/select">新規登録</a></li>
+                        <li><a href="/events">出欠の確認</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
         <div id="containerId">
              <form action="/join" name="updateJoin" method="post">
                 <input type="hidden" name="aId" value="<!--{$aId}-->">

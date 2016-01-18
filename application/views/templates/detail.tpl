@@ -11,7 +11,18 @@
         <script src="/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <!--{include file="./header.tpl" }-->
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <a class="navbar-brand" href="#">Brand</a>
+                    <ul class="nav navbar-nav">
+                        <li><a href="/top">TOP</a></li>
+                        <li><a href="/select">新規登録</a></li>
+                        <li><a href="/events">出欠の確認</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
         <div id="containerId">
             <!--{if $eventMembers|@count > 0}-->
                 <p>現在の回答：　<!--{$eventMembers|@count|escape}-->人</p>

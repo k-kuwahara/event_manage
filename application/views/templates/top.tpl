@@ -30,12 +30,22 @@
         <script src="/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <!--{include file='header.tpl'}-->
-            <div id="container">
-                <p>選択してください。</p>
-                <a href="/select"><button class="marA20 register">新規登録</button></a>
-                <a href="/events"><button class="marA20 event">出欠の確認</button></a>
-            </div>
-        <!--{include file='footer.tpl'}-->
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <a class="navbar-brand" href="#">Brand</a>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/top">TOP</a></li>
+                        <li><a href="/select">新規登録</a></li>
+                        <li><a href="/events">出欠の確認</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div id="container">
+            <p>選択してください。</p>
+            <a href="/select"><button class="marA20 register">新規登録</button></a>
+            <a href="/events"><button class="marA20 event">出欠の確認</button></a>
+        </div>
     </body>
 </html>
