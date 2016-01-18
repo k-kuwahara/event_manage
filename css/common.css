@@ -36,6 +36,11 @@ code {
     padding: 12px 10px 12px 10px;
 }
 
+p.alignC {
+   color: #616161;
+   font-weight: bold;
+   text-align: center;
+}
 p.footer {
     text-align: right;
     font-size: 11px;
@@ -51,16 +56,17 @@ p.footer {
 }
 
 #containerId {
-    width: 90%;
-    float: center;
-    margin: 10px auto;
-    padding: 20px;
-    border: 1px solid #D0D0D0;
-    box-shadow: 0 0 10px #D0D0D0;
+   width: 90%;
+   float: center;
+   margin: 10px auto;
+   padding: 30px;
+   border: 1px solid #D0D0D0;
+   box-shadow: 0 0 10px #D0D0D0;
 }
 #containerId p {
-    font-size: 15px;
-    font-weight: bold;
+   font-size: 20px;
+   color: #616161;
+   font-weight: bold;
 }
 /*--- ボタン系 ---*/
 .btnWrap {
