@@ -23,19 +23,37 @@
                                 <tr>
                                     <td class="alignC first">名前</td>
                                     <!--{foreach from=$eventMembers item="member" key="key"}-->
-                                        <td class="alignC"><!--{$member.name|escape}--></td>
+                                        <!--{if $member.answer == "出席"}-->
+                                            <td class="alignC info"><!--{$member.name|escape}--></td>
+                                        <!--{elseif $member.answer == "欠席"}-->
+                                            <td class="alignC active"><!--{$member.name|escape}--></td>
+                                        <!--{else}-->
+                                            <td class="alignC warning"><!--{$member.name|escape}--></td>
+                                        <!--{/if}-->
                                     <!--{/foreach}-->
                                 </tr>
                                 <tr>
                                     <td class="alignC first">出欠</td>
                                     <!--{foreach from=$eventMembers item="member" key="key"}-->
-                                        <td class="alignC"><!--{$member.answer|escape}--></td>
+                                        <!--{if $member.answer == "出席"}-->
+                                            <td class="alignC info"><!--{$member.answer|escape}--></td>
+                                        <!--{elseif $member.answer == "欠席"}-->
+                                            <td class="alignC active"><!--{$member.answer|escape}--></td>
+                                        <!--{else}-->
+                                            <td class="alignC warning"><!--{$member.answer|escape}--></td>
+                                        <!--{/if}-->
                                     <!--{/foreach}-->
                                 </tr>
                                 <tr>
                                     <td class="alignC first">備考</td>
                                     <!--{foreach from=$eventMembers item="member" key="key"}-->
-                                        <td class="alignC"><!--{$member.memo|escape}--></td>
+                                        <!--{if $member.answer == "出席"}-->
+                                            <td class="alignC info"><!--{$member.memo|escape}--></td>
+                                        <!--{elseif $member.answer == "欠席"}-->
+                                            <td class="alignC active"><!--{$member.memo|escape}--></td>
+                                        <!--{else}-->
+                                            <td class="alignC warning"><!--{$member.memo|escape}--></td>
+                                        <!--{/if}-->
                                     <!--{/foreach}-->
                                 </tr>
                                 <tr>
