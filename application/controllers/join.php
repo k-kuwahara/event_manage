@@ -98,6 +98,7 @@ class Join extends My_Controller {
             if ($result === FALSE) {
                 show_error($mess . 'しました。もう一度お手続きください。');
             } else {
+                $this->_assign('eId', $_POST['eId']);
                 $this->_view("join_complete.tpl");
                 return TRUE;
             }
