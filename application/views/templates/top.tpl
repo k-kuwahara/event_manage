@@ -19,17 +19,22 @@
 
     -->
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=1024">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>レプラホーン調整さん</title>
         <link rel="stylesheet" href="/css/common.css" />
+        <link rel="stylesheet" href="/css/top.css" />
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
     </head>
     <body>
         <!--{include file='header.tpl'}-->
             <div id="container">
                 <p>選択してください。</p>
-                <a href="/select"><button class="marA10 register">新規登録</button></a>
-                <a href="/events"><button class="marA10 event">出欠の確認</button></a>
+                <a href="/select"><button class="marA20 register">新規登録</button></a>
+                <a href="/events"><button class="marA20 event">出欠の確認</button></a>
             </div>
         <!--{include file='footer.tpl'}-->
     </body>

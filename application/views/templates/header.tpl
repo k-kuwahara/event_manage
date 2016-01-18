@@ -1,7 +1,7 @@
-<header>
-	<ul class="menu">
-		<li>TOP</li>
-		<li>新規登録</li>
-		<li>出欠の確認</li>
-	</ul>
+<header style="background-color:gray">
+   <div class="row">
+      <div class="col-sm-2">TOP</div>
+      <div class="col-sm-2">新規登録</div>
+      <div class="col-sm-2">出欠の確認</div>
+   </div>
 </header>
