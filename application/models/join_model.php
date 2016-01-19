@@ -47,7 +47,7 @@ class Join_model extends CI_Model {
       try {
          if ($params == '' || empty($params)) throw new Exception('データベース登録エラーが発生');
 
-         if ($params['aId'] !== NULL) {
+         if (!empty($params['aId'])) {
             $result = $this->query_model->update('dt_answer', 
                array(
                   'event_id'    => $params['eId'],

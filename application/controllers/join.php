@@ -11,7 +11,7 @@ class Join extends My_Controller {
          switch ($_SERVER['REQUEST_METHOD']) {
             case 'POST':
                 // 登録処理
-                $this->updateAnswer();
+                $this->updateAnswer($_POST['eId']);
 
                 return TRUE;
 
@@ -82,13 +82,14 @@ class Join extends My_Controller {
      * @param Array フォームの値
      * @return void
      */
-    private function updateAnswer() {
+    private function updateAnswer($eventId = '') {
         // モデルの読み込み
         $this->load->model('join_model');
         // バリデーションチェック
         $check = $this->checkValidate($_POST);
 
         if ($check === FALSE) {
+            $this->_assign('eId', $eventId);
             $this->_view("join.tpl");
 
         } else {
@@ -120,7 +121,7 @@ class Join extends My_Controller {
         }
 
         // バリデーションのセット
-        $this->form_validation->set_rules('joinName', '参加者名', 'max_length[50]');
+        $this->form_validation->set_rules('joinName', '参加者名', 'required|max_length[50]');
         $this->form_validation->set_rules('joinEmail', 'メールアドレス', 'required|valid_email|max_length[50]');
         $this->form_validation->set_rules('joinResult', '出欠', 'required|max_length[1]|integer');
 

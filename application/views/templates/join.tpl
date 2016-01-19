@@ -46,8 +46,8 @@
         </header>
         <div class="container">
              <form action="/join" name="updateJoin" method="post">
-                <input type="hidden" name="aId" value="<!--{$aId}-->">
-                <input type="hidden" name="eId" value="<!--{$eId}-->">
+                <input type="hidden" name="aId" value="<!--{$aId|escape}-->">
+                <input type="hidden" name="eId" value="<!--{$eId|escape}-->">
 
                 <p class="lead">イベント名：　<!--{$eventInfo.event_title|escape}--></p>
                 <div class="form-group">
