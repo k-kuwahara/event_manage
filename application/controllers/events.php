@@ -54,7 +54,6 @@ class Events extends My_Controller {
             show_error($mess . 'しました。もう一度お手続きください。');
         } else {
             $this->getEvents();
-            $this->_view("events.tpl");
         }
     }
 }

@@ -57,7 +57,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <form action="/event" name="deleteEvent" method="post">
+                            <form action="/events" name="deleteEvent" method="post">
                                 <input type="hidden" name="mode" value="delete">
                                 <input type="hidden" name="eventId" value="">
 
