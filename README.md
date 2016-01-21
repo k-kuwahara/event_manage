@@ -41,17 +41,6 @@ $ composer self-update
 $ composer install
 ```
 
-#### Apacheの設定
-
-```apache
-# ディレクティブの追記
-<IfModule mod_rewrite.c>
-    RewriteEngine on
-    RewriteCond %{REQUEST_URI} !\.(css|pdf|png|jpe?g|gif|js|swf|txt|ico|s?html?)$
-    RewriteRule ^(.*)$ /index.php/$1 [L]
-</IfModule>
-```
-
 #### データベース接続設定
 `application/config/***/database.php`を編集してください。※`development, testing, production`の三つとも編集する必要があります。主に変更するのは以下の部分です。
 
