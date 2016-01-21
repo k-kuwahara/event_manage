@@ -41,9 +41,9 @@
                 </div>
             </nav>
         </header>
-        <!--{if $arrEvent|@count > 0}-->
-            <p>確認するイベントを選択してください。</p>
-            <div class="container">
+        <div class="container">
+            <!--{if $arrEvent|@count > 0}-->
+                <p class="lead">確認するイベントを選択してください。</p>
                 <div class="table-responsive">
                     <table class="table table-bordered" summary="登録イベント">
                         <thead>
@@ -66,10 +66,9 @@
                                         <td class="alignC"><!--{$event.event_date|escape}--></td>
                                         <td class="alignC"><!--{$event.event_title|escape}--></td>
                                         <td class="alignC"><a href="mailto:<!--{$event.email|escape}-->"><!--{$event.email|escape}--></a></td>
-                                        <td class="alignC"><a href="/join?e_id=<!--{$event.event_id}-->"><button type="button" class="detail">出欠</button></a></td
-                                        >
+                                        <td class="alignC"><a href="/join?e_id=<!--{$event.event_id}-->"><button type="button" class="detail">出欠</button></a></td>
                                         <td class="alignC"><a href="/detail?id=<!--{$event.event_id}-->"><button type="button" class="detail">確認</button></a></td>
-                                            <td class="alignC"><button type="button" class="detail" onclick="lfDeleteEvent(<!--{$event.event_id|escape}-->);">削除</button></td>
+                                        <td class="alignC"><button type="button" class="detail" onclick="lfDeleteEvent(<!--{$event.event_id|escape}-->);">削除</button></td>
                                     </tr>
                                 <!--{/foreach}-->
                             </form>
@@ -77,7 +76,7 @@
                     </table>
                 </div>
             <!--{else}-->
-                <p>現在登録されているイベントはありません。</p>
+                <p class="lead">現在登録されているイベントはありません。</p>
             <!--{/if}-->
             <a href="/top"><button class="marT20 marB30 top">TOPへ</button></a>
         </div>

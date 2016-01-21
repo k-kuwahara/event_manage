@@ -35,7 +35,8 @@
         </header>
         <div class="container">
             <h3>登録が完了しました。</h3>
-            <a href="/top"><button class="marT20 marB30 top">TOPへ</button></a>
+            <a href="/top"><button class="marT20 top">TOPへ</button></a>
+            <a href="/events"><button class="marL20 marB30 top">一覧へ</button></a>
         </div>
         <!--{include file="./footer.tpl"}-->
     </body>
