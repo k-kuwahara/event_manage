@@ -1,15 +1,18 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Events extends MY_Controller {
+class Events extends MY_Controller
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
     }
 
-    public function index() {
+    public function index()
+    {
 
-        // deleteモードの場合イベントを削d除
+        // deleteモードの場合イベントを削除
         if ($_POST['mode'] == 'delete') {
             $this->eventDelete($_POST['eventId']);
         } else {
@@ -20,10 +23,12 @@ class Events extends MY_Controller {
 
     /**
      * イベントの取得
-     * @param void
+     *
+     * @param  void
      * @return void
      */
-    private function getEvents() {
+    private function getEvents()
+    {
         // モデルの読み込み
         $this->load->model('events_model');
         // 取得
@@ -40,10 +45,12 @@ class Events extends MY_Controller {
 
     /**
      * 削除処理
-     * @param Int イベントID
+     *
+     * @param  Int $eventId イベントID
      * @return void
      */
-    private function eventDelete($eventId = '') {
+    private function eventDelete($eventId = '')
+    {
         // モデルの読み込み
         $this->load->model('events_model');
         // 削除
