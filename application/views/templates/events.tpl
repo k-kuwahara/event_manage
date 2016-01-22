@@ -33,8 +33,8 @@
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li><a href="/top">TOP</a></li>
-                            <li><a href="/select">新規登録</a></li>
+                            <li class="default"><a href="/top">TOP</a></li>
+                            <li class="default"><a href="/select">新規登録</a></li>
                             <li class="active"><a href="/events">イベント一覧</a></li>
                         </ul>
                     </div>
