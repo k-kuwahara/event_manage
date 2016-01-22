@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>レプラホーン調整さん</title>
+        <title>調整くん</title>
         <link rel="stylesheet" href="/css/common.css" />
         <link rel="stylesheet" href="/css/top.css" />
         <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -28,7 +28,7 @@
                         <ul class="nav navbar-nav">
                             <li><a href="/top">TOP</a></li>
                             <li><a href="/select">新規登録</a></li>
-                            <li><a href="/events">出欠の確認</a></li>
+                            <li><a href="/events">イベント一覧</a></li>
                         </ul>
                     </div>
                 </div>

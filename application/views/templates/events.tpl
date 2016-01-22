@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>調整さん</title>
+        <title>調整くん</title>
         <link rel="stylesheet" href="/css/common.css" />
         <link href="/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -35,7 +35,7 @@
                         <ul class="nav navbar-nav">
                             <li><a href="/top">TOP</a></li>
                             <li><a href="/select">新規登録</a></li>
-                            <li class="active"><a href="/events">出欠の確認</a></li>
+                            <li class="active"><a href="/events">イベント一覧</a></li>
                         </ul>
                     </div>
                 </div>
