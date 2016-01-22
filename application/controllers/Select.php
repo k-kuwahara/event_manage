@@ -1,33 +1,38 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Select extends MY_Controller {
+class Select extends MY_Controller
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
     }
 
-    public function index() {
+    public function index()
+    {
         $this->_view("select.tpl");
 
         // 登録処理
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $this->postSelect($_POST);
         }
     }
 
     /**
      * 登録処理
-     * @param Array フォームの値
+     *
+     * @param  Array $arrPost フォームの値
      * @return void
      */
-    private function postSelect($arrPost = '') {
+    private function postSelect($arrPost = '')
+    {
         // モデルの読み込み
         $this->load->model('select_model');
         // バリデーションチェック
         $check = $this->checkValidate($arrPost);
 
-        if ($check === FALSE) {
+        if ($check === false) {
             log_message('debug', 'Validation error');
             $this->_view("select.tpl");
         } else {
@@ -44,10 +49,12 @@ class Select extends MY_Controller {
 
     /**
      * バリデーションチェック
-     * @param Array フォームの値
+     *
+     * @param  Array $arrPost フォームの値
      * @return Array エラー内容
      */
-    private function checkValidate($arrPost) {
+    private function checkValidate($arrPost)
+    {
         $this->load->library('form_validation');
 
         // フォームの値を保持
@@ -61,7 +68,7 @@ class Select extends MY_Controller {
         $this->form_validation->set_rules('adminEmail', 'メールアドレス', 'required|valid_email|max_length[50]');
         $this->form_validation->set_rules('eventDate', 'イベント日時', 'required|valid_datetime');
 
-        if ($this->form_validation->run() == FALSE) {
+        if ($this->form_validation->run() == false) {
             // エラーメッセージのセット
             $errors = array();
             $errors['eventTitle'] = trim(form_error('eventTitle'));
@@ -71,9 +78,9 @@ class Select extends MY_Controller {
             // パラメータのアサイン
             $this->_assign('arrErr', $errors);
             $this->_assign('forms', $forms);
-            return FALSE;
+            return false;
         }
 
-        return TRUE;
+        return true;
     }
 }
