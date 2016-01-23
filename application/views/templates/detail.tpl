@@ -26,7 +26,7 @@
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li class="default"><a href="/top">TOP</a></li>
-                            <li class="default"><a href="/select">新規登録</a></li>
+                            <li class="default"><a href="create">新規登録</a></li>
                             <li class="default"><a href="/events">イベント一覧</a></li>
                         </ul>
                     </div>
@@ -34,13 +34,13 @@
             </nav>
         </header>
         <div class="container">
-            <!--{if $eventMembers|@count > 0}-->
-                <p class="lead">現在の回答：　<!--{$eventMembers|@count|escape}-->人</p>
+            <!--{if $members|@count > 0}-->
+                <p class="lead">現在の回答：　<!--{$members|@count|escape}-->人</p>
                 <div class="table-responsive">
                     <table summary="参加者出欠" class="table table-bordered">
                         <tr>
                             <td class="alignC first">名前</td>
-                            <!--{foreach from=$eventMembers item="member" key="key"}-->
+                            <!--{foreach from=$members item="member" key="key"}-->
                                 <!--{if $member.answer == "出席"}-->
                                     <td class="alignC info"><!--{$member.name|escape}--></td>
                                 <!--{elseif $member.answer == "欠席"}-->
@@ -52,7 +52,7 @@
                         </tr>
                         <tr>
                             <td class="alignC first">出欠</td>
-                            <!--{foreach from=$eventMembers item="member" key="key"}-->
+                            <!--{foreach from=$members item="member" key="key"}-->
                                 <!--{if $member.answer == "出席"}-->
                                     <td class="alignC info"><!--{$member.answer|escape}--></td>
                                 <!--{elseif $member.answer == "欠席"}-->
@@ -64,7 +64,7 @@
                         </tr>
                         <tr>
                             <td class="alignC first">備考</td>
-                            <!--{foreach from=$eventMembers item="member" key="key"}-->
+                            <!--{foreach from=$members item="member" key="key"}-->
                                 <!--{if $member.answer == "出席"}-->
                                     <td class="alignC info"><!--{$member.memo|escape}--></td>
                                 <!--{elseif $member.answer == "欠席"}-->
@@ -76,7 +76,7 @@
                         </tr>
                         <tr>
                             <td class="alignC first">変更</td>
-                            <!--{foreach from=$eventMembers item="member" key="key"}-->
+                            <!--{foreach from=$members item="member" key="key"}-->
                                 <td class="alignC">
                                     <a href="/join?e_id=<!--{$member.event_id|escape}-->&a_id=<!--{$member.answer_id|escape}-->"><button class="change">変更</button></a>
                                 </td>

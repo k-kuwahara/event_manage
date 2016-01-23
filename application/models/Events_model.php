@@ -12,7 +12,7 @@ class Events_model extends CI_Model
      * @param  Void
      * @return Array イベント情報
      */
-    public function getEvents()
+    public function get_events()
     {
         // モデルの読み込み
         $this->load->model('query_model');
@@ -41,17 +41,17 @@ class Events_model extends CI_Model
     /**
      * イベント情報の削除
      *
-     * @param  Int $eventId イベントID
+     * @param  Int $event_id イベントID
      * @return Array イベント情報
      */
-    public function deleteEvent($eventId = '')
+    public function delete_event($event_id = '')
     {
         // モデルの読み込み
         $this->load->model('query_model');
         $result = array();
 
         try {
-            $result = $this->query_model->logicalDelete('dt_event', array('event_id' => $eventId));
+            $result = $this->query_model->logical_delete('dt_event', array('event_id' => $event_id));
 
             if ($result === false) {
                 throw new Exception('データベース削除エラーが発生'); 

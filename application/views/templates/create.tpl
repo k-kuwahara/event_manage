@@ -37,7 +37,7 @@
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li class="default"><a href="/top">TOP</a></li>
-                            <li class="active"><a href="/select">新規登録</a></li>
+                            <li class="active"><a href="/create">新規登録</a></li>
                             <li class="default"><a href="/events">イベント一覧</a></li>
                         </ul>
                     </div>
@@ -45,24 +45,24 @@
             </nav>
         </header>
         <div class="container">
-            <form action="/select" name="selectEvent" method="post">
+            <form action="/create" name="selectEvent" method="post">
                 <div class="form-group">
-                    <label for="eventTitle">イベントのタイトルを入力してください。</label><span class="attention">（必須）</span>
-                    <!--{if $arrErr.eventTitle}--><span class="attention"><!--{$arrErr.eventTitle}--></span><!--{/if}-->
-                    <input type="text" name="eventTitle" maxlength="50" class="form-control" id="eventTitle" value="<!--{$forms.eventTitle|default:''|escape}-->" placeholder="根本会" />
+                    <label for="event_title">イベントのタイトルを入力してください。</label><span class="attention">（必須）</span>
+                    <!--{if $errors.event_title}--><span class="attention"><!--{$errors.event_title}--></span><!--{/if}-->
+                    <input type="text" name="event_title" maxlength="50" class="form-control" id="event_title" value="<!--{$forms.event_title|default:''|escape}-->" placeholder="根本会" />
                 </div>
 
                 <div class="form-group">
-                    <label for="adminEmail">メールアドレスを入力して下さい。</label><span class="attention">（必須）</span>
-                    <!--{if $arrErr.adminEmail}--><span class="attention"><!--{$arrErr.adminEmail}--></span><!--{/if}-->
-                    <input type="text" name="adminEmail" maxlength="50" class="form-control" id="adminEmail" value="<!--{$forms.adminEmail|default:''|escape}-->" placeholder="hogehoge@lepra.jp" />
+                    <label for="admin_email">メールアドレスを入力して下さい。</label><span class="attention">（必須）</span>
+                    <!--{if $errors.admin_email}--><span class="attention"><!--{$errors.admin_email}--></span><!--{/if}-->
+                    <input type="text" name="admin_email" maxlength="50" class="form-control" id="admin_email" value="<!--{$forms.admin_email|default:''|escape}-->" placeholder="hogehoge@lepra.jp" />
                     <span id="helpBlock" class="help-block">※イベントの管理者として登録するものとなります。</span>
                 </div>
 
                 <div class="form-group">
-                    <label for="eventDate">イベントの日付を選択してください。</label><span class="attention">（必須）</span>
-                    <!--{if $arrErr.eventDate}--><span class="attention"><!--{$arrErr.eventDate}--></span><!--{/if}-->
-                    <input type="text" name="eventDate" id="datetimepicker" class="form-control" id="eventDate" value="<!--{$forms.eventDate|default:''|escape}-->" placeholder="2015/12/18 19:30" />
+                    <label for="event_date">イベントの日付を選択してください。</label><span class="attention">（必須）</span>
+                    <!--{if $errors.event_date}--><span class="attention"><!--{$errors.event_date}--></span><!--{/if}-->
+                    <input type="text" name="event_date" id="datetimepicker" class="form-control" id="event_date" value="<!--{$forms.event_date|default:''|escape}-->" placeholder="2015/12/18 19:30" />
                 </div>
 
                 <p></p>

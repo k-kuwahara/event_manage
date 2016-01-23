@@ -10,9 +10,9 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="/js/bootstrap.min.js"></script>
         <script type="text/javascript">
-        function lfDeleteEvent(eventId) {
+        function lfDeleteEvent(event_id) {
             if (window.confirm('削除しますがよろしいですか？')) {
-                document.deleteEvent.eventId.value = eventId;
+                document.deleteEvent.event_id.value = event_id;
                 document.deleteEvent.submit();
             }
         }
@@ -34,7 +34,7 @@
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li class="default"><a href="/top">TOP</a></li>
-                            <li class="default"><a href="/select">新規登録</a></li>
+                            <li class="default"><a href="/create">新規登録</a></li>
                             <li class="active"><a href="/events">イベント一覧</a></li>
                         </ul>
                     </div>
@@ -42,7 +42,7 @@
             </nav>
         </header>
         <div class="container">
-            <!--{if $arrEvent|@count > 0}-->
+            <!--{if $events|@count > 0}-->
                 <p class="lead">確認するイベントを選択してください。</p>
                 <div class="table-responsive">
                     <table class="table table-bordered" summary="登録イベント">
@@ -59,9 +59,9 @@
                         <tbody>
                             <form action="/events" name="deleteEvent" method="post">
                                 <input type="hidden" name="mode" value="delete">
-                                <input type="hidden" name="eventId" value="">
+                                <input type="hidden" name="event_id" value="">
 
-                                <!--{foreach from=$arrEvent item="event" key="key"}-->
+                                <!--{foreach from=$events item="event" key="key"}-->
                                     <tr>
                                         <td class="alignC"><!--{$event.event_date|escape}--></td>
                                         <td class="alignC"><!--{$event.event_title|escape}--></td>

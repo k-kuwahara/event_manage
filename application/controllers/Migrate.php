@@ -12,7 +12,7 @@ class Migrate extends CI_Controller
         $this->load->library('migration');
     }
 
-    function current() 
+    function current()
     {
         if ($this->migration->current()) {
             log_message('debug', 'Migration Success.');

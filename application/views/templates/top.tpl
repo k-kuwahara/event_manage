@@ -27,7 +27,7 @@
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="/top">TOP</a></li>
-                            <li class="default"><a href="/select">新規登録</a></li>
+                            <li class="default"><a href="/create">新規登録</a></li>
                             <li class="default"><a href="/events">イベント一覧</a></li>
                         </ul>
                     </div>
@@ -36,7 +36,7 @@
         </header>
         <div class="container">
             <p class="lead">選択してください。</p>
-            <a href="/select"><button class="register">新規登録</button></a>
+            <a href="/create"><button class="register">新規登録</button></a>
             <a href="/events"><button class="marL20 marB30 event">イベント一覧</button></a>
         </div>
         <!--{include file="./footer.tpl"}-->

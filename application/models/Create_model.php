@@ -4,16 +4,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
 /**
  * Exchange_model
  */
-class Select_model extends CI_Model
+class Create_model extends CI_Model
 {
 
     /**
      * イベントの登録
      *
      * @param  Array $params DBに登録する値の配列
-     * @return bool 登録完了orエラー
+     * @return Bool 登録完了orエラー
      */
-    public function registerEvent($params)
+    public function register_event($params)
     {
         // モデルの読み込み
         $this->load->model('query_model');
@@ -24,9 +24,9 @@ class Select_model extends CI_Model
             $ret = $this->query_model->select(
                 'dt_event', 'count(*) as cnt',
                 array(
-                    'event_title' => $params['eventTitle'],
-                    'event_date'  => $params['eventDate'],
-                    'email'       => $params['adminEmail'],
+                    'event_title' => $params['event_title'],
+                    'event_date'  => $params['event_date'],
+                    'email'       => $params['admin_email'],
                     'del_flg'     => 0,
                 )
             );
@@ -45,11 +45,11 @@ class Select_model extends CI_Model
             $result = $this->query_model->insert(
                 'dt_event',
                 array(
-                    'event_title' => $params['eventTitle'],
+                    'event_title' => $params['event_title'],
                     'create_date' => date('Y-m-d H:i:s'),
                     'update_date' => date('Y-m-d H:i:s'),
-                    'event_date'  => $params['eventDate'],
-                    'email'       => $params['adminEmail'],
+                    'event_date'  => $params['event_date'],
+                    'email'       => $params['admin_email'],
                     'del_flg'     => 0,
                 )
             );

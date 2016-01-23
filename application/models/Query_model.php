@@ -10,10 +10,10 @@ class Query_model extends CI_Model
     /**
      * レコード抽出メソッド
      *
-     * @param　String $table テーブル情報
-     * @param          String $columns 抽出カラム
-     * @param          Array  $params  キー：条件値
-     * @return         Bool 登録成功・失敗
+     * @param  String $table   テーブル情報
+     * @param  String $columns 抽出カラム
+     * @param  Array  $params  キー：条件値
+     * @return Bool 登録成功・失敗
      */
     public function select($table, $columns = '*', $params = '')
     {
@@ -36,9 +36,9 @@ class Query_model extends CI_Model
     /**
      * レコード登録メソッド
      *
-     * @param　String $table テーブル情報
-     * @param          Array $params キー:登録値
-     * @return         Bool 登録成功・失敗
+     * @param  String $table  テーブル情報
+     * @param  Array  $params キー:登録値
+     * @return Bool 登録成功・失敗
      */
     public function insert($table, $params)
     {
@@ -82,9 +82,9 @@ class Query_model extends CI_Model
             } else {
                 $sql = sprintf('UPDATE %s SET %s', $table, implode(',', $ph));
             }
-            $mergeParam = array_merge($params, $conditions);
+            $merge_param = array_merge($params, $conditions);
 
-            return $this->db->query($sql, array_values($mergeParam));
+            return $this->db->query($sql, array_values($merge_param));
         }
 
         return true;
@@ -93,11 +93,11 @@ class Query_model extends CI_Model
     /**
      * レコード論理削除メソッド
      *
-     * @param　String $table テーブル情報
-     * @param          Array $params WHERE句パラメータ キー:条件値
-     * @return         Bool 登録成功・失敗
+     * @param  String $table  テーブル情報
+     * @param  Array  $params WHERE句パラメータ キー:条件値
+     * @return Bool 登録成功・失敗
      */
-    public function logicalDelete($table, $params = '')
+    public function logical_delete($table, $params = '')
     {
         $ph = array();
 
@@ -117,11 +117,11 @@ class Query_model extends CI_Model
     /**
      * レコード物理削除メソッド
      *
-     * @param　String $table テーブル情報
-     * @param          Array $params WHERE句パラメータ キー:条件値
-     * @return         Bool 登録成功・失敗
+     * @param  String $table  テーブル情報
+     * @param  Array  $params WHERE句 キー:条件値
+     * @return Bool 登録成功・失敗
      */
-    public function physicalDelete($table, $params = '')
+    public function physical_delete($table, $params = '')
     {
         $ph = array();
 

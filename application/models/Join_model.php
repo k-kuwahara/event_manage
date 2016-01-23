@@ -9,10 +9,10 @@ class Join_model extends CI_Model
     /**
     * 終了していないイベント情報の取得
     *
-    * @param  Int $eventId イベントID
+    * @param  Int $event_id イベントID
     * @return Array イベント情報
-    **/
-    public function getEvents($eventId = '') 
+    */
+    public function getEvents($event_id = '') 
     {
         // モデルの読み込み
         $this->load->model('query_model');
@@ -20,14 +20,14 @@ class Join_model extends CI_Model
 
         try {
             // イベントIDが空の場合はエラー
-            if ($eventId == '') {
+            if ($event_id == '') {
                 throw new Exception('不正なアクセスです。'); 
             }
 
             $ret = $this->query_model->select(
                 'dt_event', 'event_id, event_title, event_date, email, del_flg',
                 array(
-                'event_id' => $eventId,
+                'event_id' => $event_id,
                 'del_flg'  => 0,
                 )
             );
@@ -50,7 +50,7 @@ class Join_model extends CI_Model
     * @param  Array $params DBに登録する値の配列
     * @return Bool 登録完了orエラー
     */
-    public function registerMember($params)
+    public function register_member($params)
     {
         // モデルの読み込み
         $this->load->model('query_model');
@@ -61,31 +61,31 @@ class Join_model extends CI_Model
                 throw new Exception('データベース登録エラーが発生'); 
             }
 
-            if (!empty($params['aId'])) {
+            if (!empty($params['a_id'])) {
                 $result = $this->query_model->update(
                     'dt_answer', 
                     array(
-                    'event_id'    => $params['eId'],
-                    'answer_date' => date('Y-m-d H:i:s'),
-                    'answer'      => $params['joinResult'],
-                    'answer_name' => $params['joinName'],
-                    'email'       => $params['joinEmail'],
-                    'memo'        => $params['joinMemo'],
+                        'event_id'    => $params['e_id'],
+                        'answer_date' => date('Y-m-d H:i:s'),
+                        'answer'      => $params['join_result'],
+                        'answer_name' => $params['join_name'],
+                        'email'       => $params['join_email'],
+                        'memo'        => $params['join_memo'],
                     ),
                     array(
-                    'answer_id' => $params['aId'],
+                        'answer_id' => $params['a_id'],
                     )
                 );
             } else {
                 $result = $this->query_model->insert(
                     'dt_answer', 
                     array(
-                    'event_id'    => $params['eId'],
-                    'answer_date' => date('Y-m-d H:i:s'),
-                    'answer'      => $params['joinResult'],
-                    'answer_name' => $params['joinName'],
-                    'email'       => $params['joinEmail'],
-                    'memo'        => $params['joinMemo'],
+                        'event_id'    => $params['e_id'],
+                        'answer_date' => date('Y-m-d H:i:s'),
+                        'answer'      => $params['join_result'],
+                        'answer_name' => $params['join_name'],
+                        'email'       => $params['join_email'],
+                        'memo'        => $params['join_memo'],
                     )
                 );
             }
@@ -103,10 +103,10 @@ class Join_model extends CI_Model
     /**
     * イベントの解凍情報取得
      *
-    * @param  Int $answerId イベントID
+    * @param  Int $answer_id イベントID
     * @return Array イベント情報
     **/
-    public function getAnswer($answerId = '')
+    public function get_answer($answer_id = '')
     {
         // モデルの読み込み
         $this->load->model('query_model');
@@ -114,20 +114,20 @@ class Join_model extends CI_Model
 
         try {
             // イベントIDが空の場合はエラー
-            if ($answerId == '') {
+            if ($answer_id == '') {
                 throw new Exception('不正なアクセスです。'); 
             }
 
             $ret = $this->query_model->select(
                 'dt_answer', 
                 'answer_id, 
-             event_id, 
-             answer as joinResult, 
-             answer_name as joinName, 
-             email as joinEmail, 
-             memo as joinMemo',
+                 event_id, 
+                 answer as join_result, 
+                 answer_name as join_name, 
+                 email as join_email, 
+                 memo as join_memo',
                 array(
-                'answer_id' => $answerId,
+                    'answer_id' => $answer_id,
                 )
             );
 

@@ -37,7 +37,7 @@
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li class="default"><a href="/top">TOP</a></li>
-                            <li class="default"><a href="/select">新規登録</a></li>
+                            <li class="default"><a href="/create">新規登録</a></li>
                             <li class="default"><a href="/events">イベント一覧</a></li>
                         </ul>
                     </div>
@@ -45,39 +45,39 @@
             </nav>
         </header>
         <div class="container">
-             <form action="/join" name="updateJoin" method="post">
-                <input type="hidden" name="aId" value="<!--{$aId|escape}-->">
-                <input type="hidden" name="eId" value="<!--{$eId|escape}-->">
+             <form action="/join" name="update_join" method="post">
+                <input type="hidden" name="a_id" value="<!--{$a_id|escape}-->">
+                <input type="hidden" name="e_id" value="<!--{$e_id|escape}-->">
 
-                <p class="lead">イベント名：　<!--{$eventInfo.event_title|escape}--></p>
+                <p class="lead">イベント名：　<!--{$event_info.event_title|escape}--></p>
                 <div class="form-group">
 
-                    <label for="joinName">参加者名を入力して下さい。</label><span class="attention">（必須）</span>
-                    <!--{if $arrErr.joinName}--><span class="attention"><!--{$arrErr.joinName}--></span><!--{/if}-->
-                    <input type="text" name="joinName" maxlength="50" class="form-control" id="joinName" value="<!--{$forms.joinName|default:''|escape}-->" placeholder="桑原（ニックネーム可）" />
+                    <label for="join_name">参加者名を入力して下さい。</label><span class="attention">（必須）</span>
+                    <!--{if $errors.join_name}--><span class="attention"><!--{$errors.join_name}--></span><!--{/if}-->
+                    <input type="text" name="join_name" maxlength="50" class="form-control" id="join_name" value="<!--{$forms.join_name|default:''|escape}-->" placeholder="桑原（ニックネーム可）" />
                 </div>
 
                 <div class="form-group">
-                    <label for="joinEmail">メールアドレスを入力して下さい。</label><span class="attention">（必須）</span>
-                    <!--{if $arrErr.joinEmail}--><span class="attention"><!--{$arrErr.joinEmail}--></span><!--{/if}-->
-                    <input type="text" name="joinEmail" maxlength="50" class="form-control" id="joinEmail" size="20" value="<!--{$forms.joinEmail|default:''|escape}-->" placeholder="hogehoge@lepra.jp" />
+                    <label for="join_email">メールアドレスを入力して下さい。</label><span class="attention">（必須）</span>
+                    <!--{if $errors.join_email}--><span class="attention"><!--{$errors.join_email}--></span><!--{/if}-->
+                    <input type="text" name="join_email" maxlength="50" class="form-control" id="join_email" size="20" value="<!--{$forms.join_email|default:''|escape}-->" placeholder="hogehoge@lepra.jp" />
                 </div>
 
                 <div class="form-group">
                     <p>出席 / 欠席 / 保留 を選択してください。<span class="attention">（必須）</span></p>
-                    <!--{if $arrErr.joinResult}--><span class="attention"><!--{$arrErr.joinResult}--></span><!--{/if}-->
+                    <!--{if $errors.join_result}--><span class="attention"><!--{$errors.join_result}--></span><!--{/if}-->
                     <div class="marB95">
-                        <ul class="selectJoin">
+                        <ul class="select-join">
                             <li>
-                                <input type="radio" name="joinResult" id="select1" class="form-control" value="1" <!--{if $forms.joinResult == 1}-->checked = "" <!--{/if}--> />
+                                <input type="radio" name="join_result" id="select1" class="form-control" value="1" <!--{if $forms.join_result == 1}-->checked = "" <!--{/if}--> />
                                 <label for="select1">出席</label></li>
                             </li>
                             <li>
-                                <input type="radio" name="joinResult" id="select2" class="form-control" value="2" <!--{if $forms.joinResult == 2}-->checked = "" <!--{/if}--> />
+                                <input type="radio" name="join_result" id="select2" class="form-control" value="2" <!--{if $forms.join_result == 2}-->checked = "" <!--{/if}--> />
                                 <label for="select2">欠席</label>
                             </li>
                             <li>
-                                <input type="radio" name="joinResult" id="select3" class="form-control" value="3" <!--{if $forms.joinResult == 3}-->checked = "" <!--{/if}--> />
+                                <input type="radio" name="join_result" id="select3" class="form-control" value="3" <!--{if $forms.join_result == 3}-->checked = "" <!--{/if}--> />
                                 <label for="select3">保留</label>
                             </li>
                         </ul>
@@ -85,13 +85,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="joinMemo">メモ</label>
-                    <textarea name="joinMemo" cols="70" rows="8" class="form-control" id="joinMemo" placeholder="何か伝えることがありました記入してください。"><!--{$forms.joinMemo|default:''|escape}--></textarea>
+                    <label for="join_memo">メモ</label>
+                    <textarea name="join_memo" cols="70" rows="8" class="form-control" id="join_memo" placeholder="何か伝えることがありました記入してください。"><!--{$forms.join_memo|default:''|escape}--></textarea>
                 </div>
 
-                    <div class="btnSubmit">
+                    <div class="btn-submit">
                         <a href="/events"><button type="button" class="marR20 top">一覧へ戻る</button></a>
-                        <input type="submit" id="eventSubmit" class="marT20 marB30" value="登録する！">
+                        <input type="submit" id="event-submit" class="marT20 marB30" value="登録する！">
                     </div>
                 </div>
             </form>

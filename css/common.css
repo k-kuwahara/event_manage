@@ -69,9 +69,6 @@ p.footer {
    font-weight: bold;
 }
 /*--- ボタン系 ---*/
-.btnWrap {
-    text-align: center;
-}
 button.top,
 button.register,
 button.event,
@@ -100,7 +97,7 @@ button.change {
     cursor: pointer;
 }
 
-.container .selectJoin li {
+.container .select-join li {
     float: left;
     list-style: none;
     padding: 5px;
@@ -108,7 +105,7 @@ button.change {
 .container input[type="radio"] {
     display: none;
 }
-.container .selectJoin label {
+.container .select-join label {
     width: 80px;
     color: #555e64;
     border: #dddddd solid 2px;
@@ -121,7 +118,7 @@ button.change {
     cursor: pointer; 
     transition: .2s;
 }
-.container .selectJoin label:hover {
+.container .select-join label:hover {
   background-color: #E2EDF9; 
 }
 .container input[type="radio"]:checked + label {
