@@ -17,7 +17,7 @@ class Query_model extends CI_Model
      */
     public function select($table, $columns = '*', $params = '')
     {
-        $ph = array();
+        $ph = [];
 
         if ($params != '') {
             foreach ($params as $key => $val) {
@@ -28,7 +28,7 @@ class Query_model extends CI_Model
 
         } else {
             $sql = sprintf('SELECT %s FROM %s', $columns, $table);
-            return $this->db->query($sql, array());
+            return $this->db->query($sql, []);
         }
 
     }
@@ -43,7 +43,7 @@ class Query_model extends CI_Model
     public function insert($table, $params)
     {
         $sql = sprintf(
-            'INSERT INTO %s (`%s`) VALUES (%s)', $table, implode('`,`', array_keys($params)), implode(',', array_pad(array(), count($params), '?'))
+            'INSERT INTO %s (`%s`) VALUES (%s)', $table, implode('`,`', array_keys($params)), implode(',', array_pad([], count($params), '?'))
         );
         if (!$this->db->query($sql, array_values($params))) {
             return false; 
@@ -99,7 +99,7 @@ class Query_model extends CI_Model
      */
     public function logical_delete($table, $params = '')
     {
-        $ph = array();
+        $ph = [];
 
         if ($params != '') {
             foreach ($params as $key => $val) {
@@ -110,7 +110,7 @@ class Query_model extends CI_Model
 
         } else {
             $sql = sprintf('UPDATE %s SET del_flg = 1', $table);
-            return $this->db->query($sql, array());
+            return $this->db->query($sql, []);
         }
     }
 
@@ -123,7 +123,7 @@ class Query_model extends CI_Model
      */
     public function physical_delete($table, $params = '')
     {
-        $ph = array();
+        $ph = [];
 
         if ($params != '') {
             foreach ($params as $key => $val) {
@@ -135,7 +135,7 @@ class Query_model extends CI_Model
         } else {
             // 全件削除
             $sql = sprintf('DELETE FROM %s', $table);
-            return $this->db->query($sql, array());
+            return $this->db->query($sql, []);
         }
     }
 }

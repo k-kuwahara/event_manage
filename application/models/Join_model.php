@@ -12,11 +12,11 @@ class Join_model extends CI_Model
     * @param  Int $event_id イベントID
     * @return Array イベント情報
     */
-    public function getEvents($event_id = '') 
+    public function get_events($event_id = '') 
     {
         // モデルの読み込み
         $this->load->model('query_model');
-        $result = array();
+        $result = [];
 
         try {
             // イベントIDが空の場合はエラー
@@ -26,10 +26,10 @@ class Join_model extends CI_Model
 
             $ret = $this->query_model->select(
                 'dt_event', 'event_id, event_title, event_date, email, del_flg',
-                array(
-                'event_id' => $event_id,
-                'del_flg'  => 0,
-                )
+                [
+                    'event_id' => $event_id,
+                    'del_flg'  => 0,
+                ]
             );
 
             if ($ret === false) {
@@ -37,10 +37,10 @@ class Join_model extends CI_Model
             }
             $result = $ret->result_array();
 
-            return array($result, "");
+            return [$result, ""];
 
         } catch (Exception $e) {
-            return array(false, $e->getMessage());
+            return [false, $e->getMessage()];
         }
     }
 
@@ -64,53 +64,53 @@ class Join_model extends CI_Model
             if (!empty($params['a_id'])) {
                 $result = $this->query_model->update(
                     'dt_answer', 
-                    array(
+                    [
                         'event_id'    => $params['e_id'],
                         'answer_date' => date('Y-m-d H:i:s'),
                         'answer'      => $params['join_result'],
                         'answer_name' => $params['join_name'],
                         'email'       => $params['join_email'],
                         'memo'        => $params['join_memo'],
-                    ),
-                    array(
+                    ],
+                    [
                         'answer_id' => $params['a_id'],
-                    )
+                    ]
                 );
             } else {
                 $result = $this->query_model->insert(
                     'dt_answer', 
-                    array(
+                    [
                         'event_id'    => $params['e_id'],
                         'answer_date' => date('Y-m-d H:i:s'),
                         'answer'      => $params['join_result'],
                         'answer_name' => $params['join_name'],
                         'email'       => $params['join_email'],
                         'memo'        => $params['join_memo'],
-                    )
+                    ]
                 );
             }
 
             if ($result === false) {
                 throw new Exception('データベース登録エラーが発生'); 
             }
-            return array(true, "");
+            return [true, ""];
 
         } catch (Exception $e) {
-            return array(false, $e->getMessage());
+            return [false, $e->getMessage()];
         }
     }
 
     /**
-    * イベントの解凍情報取得
+     * イベントの回答情報取得
      *
-    * @param  Int $answer_id イベントID
-    * @return Array イベント情報
-    **/
+     * @param  Int $answer_id イベントID
+     * @return Array イベント情報
+     */
     public function get_answer($answer_id = '')
     {
         // モデルの読み込み
         $this->load->model('query_model');
-        $result = array();
+        $result = [];
 
         try {
             // イベントIDが空の場合はエラー
@@ -126,9 +126,9 @@ class Join_model extends CI_Model
                  answer_name as join_name, 
                  email as join_email, 
                  memo as join_memo',
-                array(
+                [
                     'answer_id' => $answer_id,
-                )
+                ]
             );
 
             if ($ret === false) {
@@ -136,10 +136,10 @@ class Join_model extends CI_Model
             }
             $result = $ret->result_array();
 
-            return array($result, "");
+            return [$result, ""];
 
         } catch (Exception $e) {
-            return array(false, $e->getMessage());
+            return [false, $e->getMessage()];
         }
     }
 }

@@ -16,14 +16,14 @@ class Events_model extends CI_Model
     {
         // モデルの読み込み
         $this->load->model('query_model');
-        $result = array();
+        $result = [];
 
         try {
             $ret = $this->query_model->select(
                 'dt_event', 'event_id, event_title, event_date, email, del_flg',
-                array(
+                [
                     'del_flg' => 0,
-                )
+                ]
             );
 
             if ($ret === false) {
@@ -31,10 +31,10 @@ class Events_model extends CI_Model
             }
             $result = $ret->result_array();
 
-            return array($result, "");
+            return [$result, ""];
 
         } catch (Exception $e) {
-            return array(false, $e->getMessage());
+            return [false, $e->getMessage()];
         }
     }
 
@@ -48,18 +48,18 @@ class Events_model extends CI_Model
     {
         // モデルの読み込み
         $this->load->model('query_model');
-        $result = array();
+        $result = [];
 
         try {
-            $result = $this->query_model->logical_delete('dt_event', array('event_id' => $event_id));
+            $result = $this->query_model->logical_delete('dt_event', ['event_id' => $event_id]);
 
             if ($result === false) {
                 throw new Exception('データベース削除エラーが発生'); 
             }
-            return array($result, "");
+            return [$result, ""];
 
         } catch (Exception $e) {
-            return array(false, $e->getMessage());
+            return [false, $e->getMessage()];
         }
     }
 }

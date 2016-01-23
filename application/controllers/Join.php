@@ -36,7 +36,7 @@ class Join extends MY_Controller
     /**
      * イベント情報の取得
      *
-     * @param  Void
+     * @param  Int $event_id イベントID
      * @return Void
      */
     private function get_event_info($event_id = '')
@@ -125,7 +125,7 @@ class Join extends MY_Controller
         $this->load->library('form_validation');
 
         // フォームの値を保持
-        $forms    = array();
+        $forms    = [];
         foreach ($post_data as $key => $val) {
             $forms[$key] = $val;
         }
@@ -137,7 +137,7 @@ class Join extends MY_Controller
 
         if ($this->form_validation->run() == false) {
             // エラーメッセージのセット
-            $errors = array();
+            $errors = [];
             $errors['join_name'] = trim(form_error('join_name'));
             $errors['join_email'] = trim(form_error('join_email'));
             $errors['join_result'] = trim(form_error('join_result'));

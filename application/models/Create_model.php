@@ -17,18 +17,18 @@ class Create_model extends CI_Model
     {
         // モデルの読み込み
         $this->load->model('query_model');
-        $result = array();
+        $result = [];
 
         try {
             // 重複チェック
             $ret = $this->query_model->select(
                 'dt_event', 'count(*) as cnt',
-                array(
+                [
                     'event_title' => $params['event_title'],
                     'event_date'  => $params['event_date'],
                     'email'       => $params['admin_email'],
                     'del_flg'     => 0,
-                )
+                ]
             );
 
             if ($ret === false) {
@@ -44,23 +44,23 @@ class Create_model extends CI_Model
 
             $result = $this->query_model->insert(
                 'dt_event',
-                array(
+                [
                     'event_title' => $params['event_title'],
                     'create_date' => date('Y-m-d H:i:s'),
                     'update_date' => date('Y-m-d H:i:s'),
                     'event_date'  => $params['event_date'],
                     'email'       => $params['admin_email'],
                     'del_flg'     => 0,
-                )
+                ]
             );
 
             if ($result === false) {
                 throw new Exception('データベース登録エラーが発生');
             }
-            return array(true, "");
+            return [true, ""];
 
         } catch (Exception $e) {
-            return array(false, $e->getMessage());
+            return [false, $e->getMessage()];
         }
     }
 }

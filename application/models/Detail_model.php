@@ -17,7 +17,7 @@ class Detail_model extends CI_Model
     {
         // モデルの読み込み
         $this->load->model('query_model');
-        $result = array();
+        $result = [];
 
         try {
             // イベントIDが空の場合はエラー
@@ -27,17 +27,17 @@ class Detail_model extends CI_Model
 
             $ret = $this->query_model->select(
                 'dt_answer', 
-                'answer_id, 
+                "answer_id, 
                  event_id, 
                  answer_date, 
                  (CASE WHEN answer = 1 THEN '出席'
                        WHEN answer = 2 THEN '欠席'
                        ELSE '保留' END) AS answer, 
                  answer_name as name, 
-                 memo', 
-                array(
+                 memo", 
+                [
                     'event_id' => $event_id,
-                )
+                ]
             );
 
             if ($ret === false) {
@@ -45,10 +45,10 @@ class Detail_model extends CI_Model
             }
             $result = $ret->result_array();
 
-            return array($result, "");
+            return [$result, ""];
 
         } catch (Exception $e) {
-            return array(false, $e->getMessage());
+            return [false, $e->getMessage()];
         }
     }
 
