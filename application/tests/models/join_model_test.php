@@ -9,13 +9,13 @@ class join_model_test extends TestCase {
       $this->CI->load->model('join_model');
       $this->CI->load->model('query_model');
 
-      $this->joinObj  = $this->CI->join_model;
-      $this->queryObj = $this->CI->query_model;
+      $this->obj_join  = $this->CI->join_model;
+      $this->obj_query = $this->CI->query_model;
    }
 
    public function test_index() {
       // 初期データ投入
-      $arrParam = [
+      $params = [
          'event_title' => 'テストイベントタイトル4',
          'create_date' => date('Y-m-d H:i:s'),
          'update_date' => date('Y-m-d H:i:s'),
@@ -25,74 +25,74 @@ class join_model_test extends TestCase {
       ];
 
       // 登録実行
-      $result = $this->queryObj->insert('dt_event', $arrParam);
+      $result = $this->obj_query->insert('dt_event', $params);
       // 正常終了確認
       $this->assertTrue($result);
    }
 
    // イベントデータ取得
-   public function test_getEvents() {
+   public function test_get_events() {
       // 正常系
       // イベントデータ取得
-      $eventGet = $this->queryObj->select(
+      $tmp = $this->obj_query->select(
          'dt_event',
          '*',
          ''
       );
-      $eventGetResult = $eventGet->result_array();
+      $events = $tmp->result_array();
       // 正常終了確認
-      $this->assertLessThan(count($eventGetResult), 0);
+      $this->assertLessThan(count($events), 0);
 
       // 異常系
       // イベントデータ取得
-      list($eventGet, $retMess) = $this->joinObj->getEvents();
+      list($events, $ret_mess) = $this->obj_join->get_events();
       // エラー確認
-      $this->assertFalse($eventGet);
-      $this->assertEquals($retMess, '不正なアクセスです。');
+      $this->assertFalse($events);
+      $this->assertEquals($ret_mess, '不正なアクセスです。');
    }
 
 
    // 回答登録テスト
-   public function test_registerMember() {
+   public function test_register_member() {
       // 正常系
       // イベントデータ取得
-      $eventGet = $this->queryObj->select(
+      $tmp = $this->obj_query->select(
          'dt_event',
          '*',
          ''
       );
-      $eventGetResult = $eventGet->result_array();
+      $events = $tmp->result_array();
 
       $params = [
-          'aId'        => NULL,
-          'eId'        => $eventGetResult[0]['event_id'],
-          'joinResult' => 1,
-          'joinName'   => 'フーテスト',
-          'joinEmail'  => 'foo@hotmail.co.jp',
-          'joinMemo'   => 'テストメモ4'
+          'a_id'        => NULL,
+          'e_id'        => $events[0]['event_id'],
+          'join_result' => 1,
+          'join_name'   => 'フーテスト',
+          'join_email'  => 'foo@hotmail.co.jp',
+          'join_memo'   => 'テストメモ4'
       ];
       // 登録実行
-      list($result, $retMess) = $this->joinObj->registerMember($params);
+      list($result, $ret_mess) = $this->obj_join->register_member($params);
       // 正常終了確認
       $this->assertTrue($result);
-      $this->assertEquals($retMess, "");
+      $this->assertEquals($ret_mess, "");
 
       // 異常系
       // 登録実行（空文字列）
-      list($result, $retMess) = $this->joinObj->registerMember('');
+      list($result, $ret_mess) = $this->obj_join->register_member('');
       // 正常終了確認
       $this->assertFalse($result);
-      $this->assertEquals($retMess, "データベース登録エラーが発生");
+      $this->assertEquals($ret_mess, "データベース登録エラーが発生");
       // 登録実行（空配列）
-      list($result, $retMess) = $this->joinObj->registerMember([]);
+      list($result, $ret_mess) = $this->obj_join->register_member([]);
       // 正常終了確認
       $this->assertFalse($result);
-      $this->assertEquals($retMess, "データベース登録エラーが発生");
+      $this->assertEquals($ret_mess, "データベース登録エラーが発生");
       // 登録実行（空配列）
-      list($result, $retMess) = $this->joinObj->registerMember(NULL);
+      list($result, $ret_mess) = $this->obj_join->register_member(NULL);
       // 正常終了確認
       $this->assertFalse($result);
-      $this->assertEquals($retMess, "データベース登録エラーが発生");
+      $this->assertEquals($ret_mess, "データベース登録エラーが発生");
    }
 
 
@@ -100,22 +100,22 @@ class join_model_test extends TestCase {
    public function test_getAnswer() {
       // 正常系
       // 登録回答データ全件取得
-      $answerGet = $this->queryObj->select(
+      $tmp = $this->obj_query->select(
          'dt_answer',
          'answer_id',
          ''
       );
-      $answerGetResult = $answerGet->result_array();
+      $tmp_answers = $tmp->result_array();
       // イベントデータ取得
-      list($answerResult, $retMess) = $this->joinObj->getAnswer($answerGetResult[0]['answer_id']);
+      list($answers, $ret_mess) = $this->obj_join->get_answer($tmp_answers[0]['answer_id']);
       // 正常終了確認
-      $this->assertEquals(count($answerResult), 1);
-      $this->assertEquals($retMess, "");
+      $this->assertEquals(count($answers), 1);
+      $this->assertEquals($ret_mess, "");
 
       // 異常系
       // イベントデータ取得
-      list($answerResult, $retMess) = $this->joinObj->getAnswer();
+      list($answers, $ret_mess) = $this->obj_join->get_answer();
       // エラー確認
-      $this->assertEquals($retMess, '不正なアクセスです。');
+      $this->assertEquals($ret_mess, '不正なアクセスです。');
    }
 }
