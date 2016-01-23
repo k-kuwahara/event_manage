@@ -1,24 +1,32 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
 /**
- * Exchange_model
+ * イベント詳細のモデル
  */
-class Detail_model extends CI_Model {
+class Detail_model extends CI_Model
+{
 
     /**
      * イベントの出欠情報の取得
-     * @param Int エベントID
-     * @param Array 出欠情報
+     *
+     * @param  Int $eventId エベントID
+     * @return Array 出欠情報
      */
-    public function getAnswer($eventId = '') {
+    public function getAnswer($eventId = '')
+    {
         // モデルの読み込み
         $this->load->model('query_model');
         $result = array();
 
         try {
             // イベントIDが空の場合はエラー
-            if ($eventId == '') throw new Exception('不正なアクセスです。');
+            if ($eventId == '') {
+                throw new Exception('不正なアクセスです。'); 
+            }
 
-            $ret = $this->query_model->select('dt_answer', 
+            $ret = $this->query_model->select(
+                'dt_answer', 
                 "answer_id, 
                 event_id, 
                 answer_date, 
@@ -32,7 +40,9 @@ class Detail_model extends CI_Model {
                 )
             );
 
-            if ($ret === false) throw new Exception('データベース参照エラーが発生');
+            if ($ret === false) {
+                throw new Exception('データベース参照エラーが発生'); 
+            }
             $result = $ret->result_array();
 
             return array($result, "");

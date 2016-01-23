@@ -1,16 +1,18 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
- * App_Controller
- * Smarty on CodeIgniter
+ * 拡張コントローラ
  */
-class MY_Controller extends CI_Controller {
+class MY_Controller extends CI_Controller
+{
     protected $template;
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
 
-        # smarty
+        // smarty
         $this->smarty->template_dir = APPPATH . 'views/templates';
         $this->smarty->compile_dir  = APPPATH . 'cache/templates_c';
         $this->smarty->left_delimiter = '<!--{';
@@ -18,7 +20,8 @@ class MY_Controller extends CI_Controller {
         $this->template = null;
     }
 
-    public function _view($template) {
+    public function _view($template)
+    {
         $this->template = $template;
     }
 
@@ -31,7 +34,8 @@ class MY_Controller extends CI_Controller {
         }
     }
 
-    public function _assign($k, $v) {
+    public function _assign($k, $v)
+    {
         $this->smarty->assign($k, $v);
     }
 }
