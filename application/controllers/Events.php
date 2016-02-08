@@ -36,6 +36,11 @@ class Events extends MY_Controller
         if ($events === false) {
             show_error($mess . 'しました。もう一度お手続きください。');
         } else {
+            // 日付チェック
+            foreach ($events as $event) {
+                if ($event['event_date'] < date('Y-m-d')) $this->event_delete($event['event_id']);
+            }
+
             $this->_assign('events', $events);
             $this->_view("events.tpl");
         }
