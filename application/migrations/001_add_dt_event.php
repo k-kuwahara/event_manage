@@ -12,7 +12,7 @@ class Migration_Add_dt_event extends CI_Migration {
                 'type'           => 'INT',
                 'constraint'     => 8,
                 'unsigned'       => TRUE,
-                'auto_increment' => TRUE
+                'auto_increment' => TRUE,
                 'comment'        => 'イベントID'
             ],
             'event_title' => [
