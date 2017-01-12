@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CodeIgniter
  *
@@ -6,7 +7,7 @@
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2014 - 2015, British Columbia Institute of Technology
+ * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,88 +27,112 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (http://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2015, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	http://codeigniter.com
- * @since	Version 1.0.0
+ * @package    CodeIgniter
+ * @author     CodeIgniter Dev Team
+ * @copyright  Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+ * @license    http://opensource.org/licenses/MIT    MIT License
+ * @link       http://codeigniter.com
+ * @since      Version 3.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+// --------------------------------------------------------------------
 
 /**
  * CodeIgniter Cookie Helpers
  *
- * @package		CodeIgniter
- * @subpackage	Helpers
- * @category	Helpers
- * @author		EllisLab Dev Team
- * @link		http://codeigniter.com/user_guide/helpers/cookie_helper.html
+ * @package     CodeIgniter
+ * @subpackage  Helpers
+ * @category    Helpers
+ * @author      CodeIgniter Dev Team
+ * @link        http://codeigniter.com/user_guide/helpers/cookie_helper.html
  */
-
-// ------------------------------------------------------------------------
-
-if ( ! function_exists('set_cookie'))
+if (!function_exists('set_cookie'))
 {
+
 	/**
 	 * Set cookie
 	 *
 	 * Accepts seven parameters, or you can submit an associative
 	 * array in the first parameter containing all the values.
 	 *
-	 * @param	mixed
-	 * @param	string	the value of the cookie
-	 * @param	string	the number of seconds until expiration
-	 * @param	string	the cookie domain.  Usually:  .yourdomain.com
-	 * @param	string	the cookie path
-	 * @param	string	the cookie prefix
-	 * @param	bool	true makes the cookie secure
-	 * @param	bool	true makes the cookie accessible via http(s) only (no javascript)
-	 * @return	void
+	 * @param   mixed   $name
+	 * @param   string  $value    The value of the cookie
+	 * @param   string  $expire   The number of seconds until expiration
+	 * @param   string  $domain   For site-wide cookie. 
+	 *                            Usually: .yourdomain.com
+	 * @param   string  $path     The cookie path
+	 * @param   string  $prefix   The cookie prefix
+	 * @param   bool    $secure   true makes the cookie secure
+	 * @param   bool    $httpOnly true makes the cookie accessible via 
+	 *                            http(s) only (no javascript)
+	 * @see     (\Config\Services::response())->setCookie()
+	 * @see     \CodeIgniter\HTTP\Response::setCookie()
+	 * @return  void
 	 */
-	function set_cookie($name, $value = '', $expire = '', $domain = '', $path = '/', $prefix = '', $secure = FALSE, $httponly = FALSE)
+	function set_cookie($name, string $value = '', string $expire = '', 
+			string $domain = '', string $path = '/', string $prefix = '', 
+			bool $secure = false, bool $httpOnly = false)
 	{
-		// Set the config file options
-		get_instance()->input->set_cookie($name, $value, $expire, $domain, $path, $prefix, $secure, $httponly);
+		// The following line shows as a syntax error in NetBeans IDE
+		//(\Config\Services::response())->setcookie
+		$response = \Config\Services::response();
+		$response->setcookie
+				(
+				$name, $value, $expire, $domain, $path, $secure, $httpOnly
+		);
 	}
+
 }
 
-// --------------------------------------------------------------------
+//--------------------------------------------------------------------
 
-if ( ! function_exists('get_cookie'))
+if (!function_exists('get_cookie'))
 {
+
 	/**
 	 * Fetch an item from the COOKIE array
 	 *
-	 * @param	string
-	 * @param	bool
-	 * @return	mixed
+	 * @param   mixed  $index
+	 * @param   bool   $xssClean
+	 * @see     (\Config\Services::request())->getCookie()
+	 * @see     \CodeIgniter\HTTP\IncomingRequest::getCookie()
+	 * @return  mixed
 	 */
-	function get_cookie($index, $xss_clean = NULL)
+	function get_cookie($index, bool $xssClean = false)
 	{
-		is_bool($xss_clean) OR $xss_clean = (config_item('global_xss_filtering') === TRUE);
-		$prefix = isset($_COOKIE[$index]) ? '' : config_item('cookie_prefix');
-		return get_instance()->input->cookie($prefix.$index, $xss_clean);
+		$app = new \Config\App();
+		$appCookiePrefix = $app->cookiePrefix;
+		$prefix = isset($_COOKIE[$index]) ? '' : $appCookiePrefix;
+
+		$request = \Config\Services::request();
+		$filter = true === $xssClean ? FILTER_SANITIZE_STRING : null;
+		$cookie = $request->getCookie($prefix . $index, $filter);
+
+		return $cookie;
 	}
+
 }
 
-// --------------------------------------------------------------------
+//--------------------------------------------------------------------
 
-if ( ! function_exists('delete_cookie'))
+if (!function_exists('delete_cookie'))
 {
+
 	/**
 	 * Delete a COOKIE
 	 *
-	 * @param	mixed
-	 * @param	string	the cookie domain. Usually: .yourdomain.com
-	 * @param	string	the cookie path
-	 * @param	string	the cookie prefix
-	 * @return	void
+	 * @param   mixed   $name
+	 * @param   string  $domain  the cookie domain. Usually: .yourdomain.com
+	 * @param   string  $path the cookie path
+	 * @param   string  $prefix  the cookie prefix
+	 * @see     (\Config\Services::response())->setCookie()
+	 * @see     \CodeIgniter\HTTP\Response::setcookie()
+	 * @return  void
 	 */
-	function delete_cookie($name, $domain = '', $path = '/', $prefix = '')
+	function delete_cookie($name, string $domain = '', string $path = '/', 
+			string $prefix = '')
 	{
 		set_cookie($name, '', '', $domain, $path, $prefix);
 	}
+
 }

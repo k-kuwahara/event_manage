@@ -1,13 +1,33 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php namespace Config;
+
+use CodeIgniter\Hooks\Hooks;
 
 /*
-| -------------------------------------------------------------------------
-| Hooks
-| -------------------------------------------------------------------------
-| This file lets you define "hooks" to extend CI without hacking the core
-| files.  Please see the user guide for info:
-|
-|	http://codeigniter.com/user_guide/general/hooks.html
-|
-*/
+ * --------------------------------------------------------------------
+ * Application Hooks
+ * --------------------------------------------------------------------
+ * Hooks allow you to tap into the execution of the program without
+ * modifying or extending core files. This file provides a central
+ * location to define your hooks, though they can always be added
+ * at run-time, also, if needed.
+ *
+ * You create code that can execute by subscribing to events with
+ * the 'on()' method. This accepts any form of callable, including
+ * Closures, that will be executed when the hook is triggered.
+ *
+ * Example:
+ *      Hooks::on('create', [$myInstance, 'myMethod']);
+ */
+
+
+
+/*
+ * --------------------------------------------------------------------
+ * Debug Toolbar Listeners.
+ * --------------------------------------------------------------------
+ * If you delete, they will no longer be collected.
+ */
+if (ENVIRONMENT != 'production')
+{
+    Hooks::on('DBQuery', 'CodeIgniter\Debug\Toolbar\Collectors\Database::collect');
+}
