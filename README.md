@@ -17,10 +17,10 @@
 
 
 ## 開発環境
-以下（LAMP環境）を想定しています。
+以下の環境を想定しています。
 
 - PHP >= 7.0
-- Apache >= 2.2
+- Apache or Nginx
 - MySQL >= 5.6.28
 - Codeigniter 4（developブランチ）
 - Composer 1.0-dev
@@ -42,7 +42,7 @@ $ composer install
 ```
 
 #### データベース接続設定
-`application/config/***/database.php`を編集してください。※既にDB・ユーザの作成が完了していることを前提とします。
+`application/Config/Database.php`を編集してください。※既にDB・ユーザの作成が完了していることを前提とします。
 
 ```php
 <?php
@@ -52,8 +52,6 @@ $ composer install
 'database' => 'hogedb',
 'dbdriver' => 'mysqli',	// 環境毎に変更してください。
 ```
-
-開発用(development)、テスト用(testing)、本番用(production)と分かれていますので、適宜`index.php`の
 
 ```php
 <?php

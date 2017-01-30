@@ -1,17 +1,17 @@
 <?php
 class NewsModel extends \CodeIgniter\Model
 {
-	protected $table = 'news';
+	protected $table = 'dt_event';
 
 	public function getNews($slug = false)
 	{
-		if ($slug === false)
-		{
-				$this->findAll();
-		}
+	        if ($slug === false)
+	        {
+	                $this->findAll();
+	        }
 
-		return $this->asArray()
-					->where(['slug' => $slug])
-					->first();
+	        return $this->asArray()
+				->where(['event_id' => 1])
+				->get();
 	}
 }

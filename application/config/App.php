@@ -4,6 +4,7 @@ use CodeIgniter\Config\BaseConfig;
 
 class App extends BaseConfig
 {
+	public $composerAutoload = TRUE;
 
 	/*
 	|--------------------------------------------------------------------------
@@ -21,7 +22,7 @@ class App extends BaseConfig
 	| environments.
 	|
 	*/
-	public $baseURL = '';
+	public $baseURL = 'http://lepra-event.com/';
 
 	/*
 	|--------------------------------------------------------------------------
@@ -63,7 +64,7 @@ class App extends BaseConfig
 	| should run under for this request.
 	|
 	*/
-	public $defaultLocale = 'en';
+	public $defaultLocale = 'ja';
 
 	/*
 	|--------------------------------------------------------------------------
@@ -88,7 +89,7 @@ class App extends BaseConfig
 	| found, the first locale will be used.
 	|
 	*/
-	public $supportedLocales = ['en'];
+	public $supportedLocales = ['ja'];
 
 	/*
 	|--------------------------------------------------------------------------
@@ -99,7 +100,7 @@ class App extends BaseConfig
 	| dates with the date helper, and can be retrieved through the app_timezone()
 	|
 	*/
-	public $appTimezone = 'America/Chicago';
+	public $appTimezone = 'Asia/Tokyo';
 
     /*
     |--------------------------------------------------------------------------
@@ -291,28 +292,6 @@ class App extends BaseConfig
 	| Default: APPPATH.'Views/errors'
 	*/
 	public $errorViewPath = APPPATH.'Views/errors';
-
-	/*
-	|--------------------------------------------------------------------------
-	| Composer auto-loading
-	|--------------------------------------------------------------------------
-	|
-	| Enabling this setting will tell CodeIgniter to look for a Composer
-	| package auto-loader script in /vendor/autoload.php.
-	|
-	|	$composerAutoload = TRUE;
-	|
-	| Or if you have your vendor/ directory located somewhere else, you
-	| can opt to set a specific path as well:
-	|
-	|	$composerAutoload = '/path/to/vendor/autoload.php';
-	|
-	| For more information about Composer, please visit http://getcomposer.org/
-	|
-	| Note: This will NOT disable or override the CodeIgniter-specific
-	|	autoloading.
-	*/
-	public $composerAutoload = false;
 
 	/*
 	|--------------------------------------------------------------------------

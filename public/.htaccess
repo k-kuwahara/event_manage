@@ -14,7 +14,7 @@ AddDefaultCharset utf-8
 
 # Force UTF-8 for a number of file formats
 <IfModule mod_mime.c>
-    AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
+	AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 </IfModule>
 
 # ----------------------------------------------------------------------
@@ -33,7 +33,7 @@ AddDefaultCharset utf-8
 	RewriteBase /
 
 	# Redirect Trailing Slashes...
-    RewriteRule ^(.*)/$ /$1 [L,R=301]
+	RewriteRule ^(.*)/$ /$1 [L,R=301]
 
 	# Rewrite "www.example.com -> example.com"
 	RewriteCond %{HTTPS} !=on
@@ -41,21 +41,22 @@ AddDefaultCharset utf-8
 	RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
 
 	# Checks to see if the user is attempting to access a valid file,
-    # such as an image or css document, if this isn't true it sends the
-    # request to the front controller, index.php
+	# such as an image or css document, if this isn't true it sends the
+	# request to the front controller, index.php
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond $1 !^(index\.php|images|js|css|robots\.txt|favicon\.ico)
 	RewriteRule ^(.*)$ index.php/$1 [L]
 
 	# Ensure Authorization header is passed along
-    RewriteCond %{HTTP:Authorization} .
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+	RewriteCond %{HTTP:Authorization} .
+	RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 </IfModule>
 
 <IfModule !mod_rewrite.c>
-    # If we don't have mod_rewrite installed, all 404's
-    # can be sent to index.php, and everything works as normal.
-    ErrorDocument 404 index.php
+	# If we don't have mod_rewrite installed, all 404's
+	# can be sent to index.php, and everything works as normal.
+	ErrorDocument 404 index.php
 </IfModule>
 
 # ----------------------------------------------------------------------
@@ -78,20 +79,20 @@ AddDefaultCharset utf-8
 	# `AddOutputFilterByType` is still in the core directives)
 	<IfModule mod_filter.c>
 		AddOutputFilterByType DEFLATE application/atom+xml \
-		                              application/javascript \
-		                              application/json \
-		                              application/rss+xml \
-		                              application/vnd.ms-fontobject \
-		                              application/x-font-ttf \
-		                              application/xhtml+xml \
-		                              application/xml \
-		                              font/opentype \
-		                              image/svg+xml \
-		                              image/x-icon \
-		                              text/css \
-		                              text/html \
-		                              text/plain \
-		                              text/x-component \
-		                              text/xml
-    </IfModule>
+									  application/javascript \
+									  application/json \
+									  application/rss+xml \
+									  application/vnd.ms-fontobject \
+									  application/x-font-ttf \
+									  application/xhtml+xml \
+									  application/xml \
+									  font/opentype \
+									  image/svg+xml \
+									  image/x-icon \
+									  text/css \
+									  text/html \
+									  text/plain \
+									  text/x-component \
+									  text/xml
+	</IfModule>
 </IfModule>

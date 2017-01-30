@@ -59,14 +59,12 @@ if (file_exists(BASEPATH.'Config/Routes.php'))
  * only routes that have been defined here will be available.
  */
 $routes->setDefaultNamespace('App\Controllers');
-// $routes->setDefaultController('Home');
+$routes->setDefaultController('Top');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(true);
 
-$routes->setDefaultController('Pages/view');
-$routes->add('(:any)', 'Pages::view/$1');
 /**
  * --------------------------------------------------------------------
  * Route Definitions
@@ -75,7 +73,7 @@ $routes->add('(:any)', 'Pages::view/$1');
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-// $routes->add('/', 'Home::index');
+$routes->add('/', 'Top::index');
 
 /**
  * --------------------------------------------------------------------

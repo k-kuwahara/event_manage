@@ -1,5 +1,5 @@
 <?php
-class Migration_Add_blog extends \CodeIgniter\Database\Migration {
+class Migration_Add_dt_answer extends \CodeIgniter\Database\Migration {
 	public function up()
 	{
 		$this->forge->addField([

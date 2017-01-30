@@ -35,7 +35,7 @@ if (getenv('CI') !== false)
 }
 else
 {
-	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'production');
+	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 }
 
 /*
@@ -133,7 +133,6 @@ define('BASEPATH', realpath($system_directory).DIRECTORY_SEPARATOR);
 
 // Path to the front controller (this file)
 define('FCPATH', __DIR__.DIRECTORY_SEPARATOR);
-
 // Path to code root folder (just up from public)
 $pos = strrpos(FCPATH, 'public'.DIRECTORY_SEPARATOR);
 define('ROOTPATH', substr_replace(FCPATH, '', $pos, strlen('public'.DIRECTORY_SEPARATOR)));
@@ -276,5 +275,5 @@ if ($composer_autoload = $config->composerAutoload)
  *
  * And away we go...
  */
-$codeigniter = new CodeIgniter\CodeIgniter($startMemory, $startTime, $config);
+$codeigniter = new CodeIgniter\CodeIgniter($config, $startMemory, $startTime);
 $codeigniter->run();

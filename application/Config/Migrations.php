@@ -32,7 +32,7 @@ class Migrations extends BaseConfig
 	|       defaults to 'sequential' for backward compatibility with CI2.
 	|
 	*/
-	public $type = 'timestamp';
+	public $type = 'sequential';
 
 	/*
 	|--------------------------------------------------------------------------

@@ -116,3 +116,5 @@ nb-configuration.xml
 # Visual Studio Code
 .vscode/
 
+# Database settings
+application/Config/Database.php
