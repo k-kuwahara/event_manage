@@ -45,6 +45,7 @@
             <?php if (count($events) > 0): ?>
                 <p class="lead">確認するイベントを選択してください。</p>
                 <div class="table-responsive">
+                    <?php if (isset($error)): ?><?= $error ?><?php endif; ?>
                     <table class="table table-bordered" summary="登録イベント">
                         <thead>
                             <tr>
@@ -80,6 +81,6 @@
             <?php endif; ?>
             <a href="/top"><button class="marT20 marB30 top">TOPへ</button></a>
         </div>
-        <!--{include file="./footer.tpl"}-->
+        <?php include_once "footer.php" ?>
     </body>
 </html>

@@ -54,7 +54,7 @@ class Autoload extends \CodeIgniter\Config\AutoloadConfig
 			APP_NAMESPACE                => APPPATH,			// For custom namespace
 			'App'                        => APPPATH,			// To ensure filters, etc still found
 		];
-        
+
 		/**
 		 * -------------------------------------------------------------------
 		 * Class Map
@@ -71,7 +71,9 @@ class Autoload extends \CodeIgniter\Config\AutoloadConfig
 		 *       'MyClass'   => '/path/to/class/file.php'
 		 *   ];
 		 */
-		$classmap = [];
+		$classmap = [
+			'Smarty' => APPPATH.'../vendor/smarty'
+		];
 
 		//--------------------------------------------------------------------
 		// Do Not Edit Below This Line

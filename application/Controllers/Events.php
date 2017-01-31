@@ -1,19 +1,20 @@
 <?php namespace App\Controllers;
 
+use CodeIgniter\Controller;
 use \App\Models\EventsModel;
 
-class Events extends \CodeIgniter\Controller
+class Events extends Controller
 {
 	public function index()
 	{
 		// deleteモードの場合イベントを削除
 		if ($this->request->getMethod() === 'post' && $this->request->getPost('mode') === 'delete') {
-			$this->eventDelete($this->request->getPost('event_id'));
-		} else {
-			// イベントの取得
-			$data['events'] = $this->getEvents();
-			echo view('events', $data);
+			$ret = $this->eventDelete($this->request->getPost('event_id'));
+			if (is_array($ret)) $data['error'] = $ret['error'];
 		}
+		// イベントの取得
+		$data['events'] = $this->getEvents();
+		return view('events', $data);
 	}
 
 	/**
@@ -35,7 +36,7 @@ class Events extends \CodeIgniter\Controller
 		} else {
 			// 日付チェック
 			foreach ($events as $event) {
-				if ($event->event_date < date('Y-m-d')) $this->event_delete($event->event_id);
+				if ($event->event_date < date('Y-m-d')) $this->eventDelete($event->event_id);
 			}
 			return $events;
 		}
@@ -50,15 +51,15 @@ class Events extends \CodeIgniter\Controller
 	private function eventDelete($event_id = '')
 	{
 		// モデルの読み込み
-		$events_model = new Model\EventsModel();
+		$events_model = new EventsModel();
 		// 削除
-		list($events, $mess) = $events_model->delete_event($event_id);
+		list($events, $mess) = $events_model->deleteEvent($event_id);
 
 		// 何かしらのエラー発生時
 		if ($events === false) {
-			show_error($mess . 'しました。もう一度お手続きください。');
+			return ['error' => $mess];
 		} else {
-			$this->get_events();
+			return true;
 		}
 	}
 }

@@ -43,9 +43,9 @@ class Rules
 	/**
 	 * Alpha
 	 *
-	 * @param    string
+	 * @param	string
 	 *
-	 * @return    bool
+	 * @return	bool
 	 */
 	public function alpha(string $str): bool
 	{
@@ -57,9 +57,9 @@ class Rules
 	/**
 	 * Alpha-numeric with underscores and dashes
 	 *
-	 * @param    string
+	 * @param	string
 	 *
-	 * @return    bool
+	 * @return	bool
 	 */
 	public function alpha_dash(string $str): bool
 	{
@@ -71,9 +71,9 @@ class Rules
 	/**
 	 * Alpha-numeric
 	 *
-	 * @param    string
+	 * @param	string
 	 *
-	 * @return    bool
+	 * @return	bool
 	 */
 	public function alpha_numeric(string $str): bool
 	{
@@ -85,9 +85,9 @@ class Rules
 	/**
 	 * Alpha-numeric w/ spaces
 	 *
-	 * @param    string
+	 * @param	string
 	 *
-	 * @return    bool
+	 * @return	bool
 	 */
 	public function alpha_numeric_spaces(string $str): bool
 	{
@@ -99,9 +99,9 @@ class Rules
 	/**
 	 * Decimal number
 	 *
-	 * @param    string
+	 * @param	string
 	 *
-	 * @return    bool
+	 * @return	bool
 	 */
 	public function decimal(string $str): bool
 	{
@@ -152,10 +152,10 @@ class Rules
 	/**
 	 * Greater than
 	 *
-	 * @param    string
-	 * @param    int
+	 * @param	string
+	 * @param	int
 	 *
-	 * @return    bool
+	 * @return	bool
 	 */
 	public function greater_than(string $str, string $min, array $data): bool
 	{
@@ -167,10 +167,10 @@ class Rules
 	/**
 	 * Equal to or Greater than
 	 *
-	 * @param    string
-	 * @param    int
+	 * @param	string
+	 * @param	int
 	 *
-	 * @return    bool
+	 * @return	bool
 	 */
 	public function greater_than_equal_to(string $str, string $min, array $data): bool
 	{
@@ -196,9 +196,9 @@ class Rules
 	/**
 	 * Integer
 	 *
-	 * @param    string
+	 * @param	string
 	 *
-	 * @return    bool
+	 * @return	bool
 	 */
 	public function integer(string $str): bool
 	{
@@ -239,8 +239,8 @@ class Rules
 	 * record updates.
 	 *
 	 * Example:
-	 *    is_unique[table.field,ignore_field,ignore_value]
-	 *    is_unique[users.email,id,5]
+	 *	is_unique[table.field,ignore_field,ignore_value]
+	 *	is_unique[users.email,id,5]
 	 *
 	 * @param string $str
 	 * @param string $field
@@ -274,10 +274,10 @@ class Rules
 	/**
 	 * Less than
 	 *
-	 * @param    string
-	 * @param    int
+	 * @param	string
+	 * @param	int
 	 *
-	 * @return    bool
+	 * @return	bool
 	 */
 	public function less_than(string $str, string $max): bool
 	{
@@ -289,10 +289,10 @@ class Rules
 	/**
 	 * Equal to or Less than
 	 *
-	 * @param    string
-	 * @param    int
+	 * @param	string
+	 * @param	int
 	 *
-	 * @return    bool
+	 * @return	bool
 	 */
 	public function less_than_equal_to(string $str, string $max): bool
 	{
@@ -330,6 +330,8 @@ class Rules
 	 */
 	public function max_length(string $str, string $val, array $data): bool
 	{
+		var_dump('max_length');
+		var_dump($val);
 		if (! is_numeric($val))
 		{
 			return false;
@@ -364,9 +366,9 @@ class Rules
 	/**
 	 * Numeric
 	 *
-	 * @param    string
+	 * @param	string
 	 *
-	 * @return    bool
+	 * @return	bool
 	 */
 	public function numeric(string $str): bool
 	{
@@ -400,9 +402,9 @@ class Rules
 	/**
 	 * Required
 	 *
-	 * @param    string
+	 * @param	string
 	 *
-	 * @return    bool
+	 * @return	bool
 	 */
 	public function required($str): bool
 	{
@@ -419,7 +421,7 @@ class Rules
 	 *
 	 * 	required_with[password]
 	 *
-	 * @param        $str
+	 * @param		$str
 	 * @param string $fields
 	 * @param array  $data
 	 *
@@ -427,7 +429,7 @@ class Rules
 	 */
 	public function required_with($str, string $fields, array $data): bool
 	{
-	    $fields = explode(',', $fields);
+		$fields = explode(',', $fields);
 
 		// If the field is present we can safely assume that
 		// the field is here, no matter whether the corresponding
@@ -461,7 +463,7 @@ class Rules
 	 *
 	 * 	required_without[id,email]
 	 *
-	 * @param        $str
+	 * @param		$str
 	 * @param string $fields
 	 * @param array  $data
 	 *
@@ -532,9 +534,9 @@ class Rules
 	/**
 	 * Checks for a correctly formatted email address
 	 *
-	 * @param    string
+	 * @param	string
 	 *
-	 * @return    bool
+	 * @return	bool
 	 */
 	public function valid_email(string $str): bool
 	{
@@ -554,9 +556,9 @@ class Rules
 	 * Example:
 	 * 	valid_emails[one@example.com,two@example.com]
 	 *
-	 * @param    string
+	 * @param	string
 	 *
-	 * @return    bool
+	 * @return	bool
 	 */
 	public function valid_emails(string $str): bool
 	{
@@ -581,7 +583,7 @@ class Rules
 	/**
 	 * Validate an IP address
 	 *
-	 * @param        $ip     IP Address
+	 * @param		$ip	 IP Address
 	 * @param string $which  IP protocol: 'ipv4' or 'ipv6'
 	 * @param array  $data
 	 *
@@ -637,6 +639,45 @@ class Rules
 		$str = 'http://'.$str;
 
 		return (filter_var($str, FILTER_VALIDATE_URL) !== false);
+	}
+
+	//--------------------------------------------------------------------
+
+	/**
+	* Valid DateTime
+	*
+	* @param  String $str 日時
+	*
+	* @return Bool
+	*/
+	public function valid_datetime(string $str)
+	{
+		if (empty($str)) {
+			return false;
+		}
+
+		// 日付と時間を分離
+		$datetimes = explode(' ', trim($str));
+		$dateData = $datetimes[0];
+		$timeData = $datetimes[1];
+
+		// 日付を年月日で分離
+		$ymd = explode('/', $dateData);
+		// 日付の正確性チェック
+		if (! checkdate($ymd[1], $ymd[2], $ymd[0])) {
+			return false;
+		}
+
+		// 時間を時と分で分離
+		$hourmin = explode(':', $timeData);
+		// 時間の正確性チェック
+		if (   0 > $hourmin[0] || $hourmin[0] > 24
+			|| 0 > $hourmin[1] || $hourmin[1] > 59
+		) {
+			return false;
+		}
+
+		return true;
 	}
 
 	//--------------------------------------------------------------------

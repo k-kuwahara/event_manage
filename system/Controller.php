@@ -175,11 +175,11 @@ class Controller
      *
      * @param \CodeIgniter\HTTP\RequestInterface $request
      * @param                                    $rules
-     * @param array|null                         $messages
+     * @param array                              $messages
      *
      * @return bool
      */
-    public function validate(RequestInterface $request, $rules, array $messages = null): bool
+    public function validate(RequestInterface $request, $rules, array $messages = []): bool
     {
         $this->validator = Services::validation();
 
