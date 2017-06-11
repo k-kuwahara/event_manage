@@ -1,7 +1,7 @@
 <?php namespace App\Controllers;
 
 use CodeIgniter\Controller;
-use \App\Models\EventsModel;
+use App\Models\EventsModel;
 
 class Events extends Controller
 {
